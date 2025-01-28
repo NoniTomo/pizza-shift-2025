@@ -17,7 +17,7 @@ export function PaymentCardForm() {
         <h1 className="hidden pb-5 text-xl font-bold sm:block">{t('formPaymentLongName')}</h1>
         <div className="flex flex-col gap-5">
           <form
-            className="flex max-w-[500px] flex-col gap-5"
+            className="flex max-w-[600px] flex-col gap-5"
             onSubmit={state.form.handleSubmit(functions.onSubmit)}
           >
             <div className="rounded-3xl bg-text-light p-8">

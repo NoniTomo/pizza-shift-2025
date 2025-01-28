@@ -1,5 +1,3 @@
-/* import { parse, stringify } from 'flatted'
- */
 import { instance } from './instance'
 import { interceptor } from './interceptor'
 
