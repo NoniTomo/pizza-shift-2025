@@ -1,0 +1,60 @@
+{
+  "name": "pizza",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.10",
+    "@hookform/resolvers": "^3.10.0",
+    "@radix-ui/react-dialog": "^1.1.5",
+    "@radix-ui/react-label": "^2.1.1",
+    "@radix-ui/react-separator": "^1.1.1",
+    "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-tabs": "^1.1.2",
+    "@radix-ui/react-toggle": "^1.1.1",
+    "@radix-ui/react-toggle-group": "^1.1.1",
+    "@radix-ui/react-visually-hidden": "^1.1.1",
+    "@siberiacancode/reactuse": "^0.0.78",
+    "@tanstack/react-query": "^5.64.2",
+    "axios": "^1.7.9",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cookies-next": "^5.1.0",
+    "lucide-react": "^0.473.0",
+    "negotiator": "^1.0.0",
+    "next": "15.1.6",
+    "react": "^19",
+    "react-dom": "^19",
+    "react-hook-form": "^7.54.2",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
+    "use-mask-input": "^3.4.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.1.0",
+    "@tanstack/react-query-devtools": "^5.64.2",
+    "@types/negotiator": "^0.6.3",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^9.19.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import-x": "^4.6.1",
+    "lint-staged": "^15.4.3",
+    "postcss": "^8",
+    "simple-git-hooks": "^2.11.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "yarn lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
