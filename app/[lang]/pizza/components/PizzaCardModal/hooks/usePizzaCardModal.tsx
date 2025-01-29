@@ -4,7 +4,7 @@ export interface usePizzaCardProps {
   pizza: Pizza
 }
 
-export function usePizzaCard({ pizza }: usePizzaCardProps) {
+export function usePizzaCardModal({ pizza }: usePizzaCardProps) {
   const [modal, setModal] = React.useState(false)
   const [size, setSize] = React.useState<PizzaSize>(pizza.sizes[0])
   const [doughs, setDoughs] = React.useState<PizzaDough>(pizza.doughs[0])
