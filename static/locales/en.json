@@ -26,8 +26,8 @@
   "buttonUpdateData": "Update data",
   "buttonCancel": "Cancel",
   "buttonAddToCart": "Add to cart",
-  "buttonGetOtp": "Запросить код ещё раз",
-  "buttonLogIn": "Войти",
+  "buttonGetOtp": "Request code again",
+  "buttonLogIn": "Log in",
 
   "viewSuccesName": "Payment was successful!",
   "viewSuccesOrder": "Order",

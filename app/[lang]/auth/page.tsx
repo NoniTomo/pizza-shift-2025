@@ -1,21 +1,22 @@
+import { ROUTES } from '@/src/shared/constants'
 import { getDictionary } from '@/src/shared/helpers'
+import CancelIcon from '@/static/icons/cancel.svg'
+import Image from 'next/image'
+import Link from 'next/link'
 import { Header, Main } from '../(components)'
 import { AuthPageProvider } from './components/AuthPageProvider'
 import { Stepper } from './components/Stepper'
-import Link from 'next/link'
-import Image from 'next/image'
-import CancelIcon from '@/static/icons/cancel.svg'
 
 export default async function Auth({ params }: PageParams) {
   const lang = (await params).lang
   const dict = getDictionary(lang)
 
   return (
-    <div className='h-screen z-50 bg-background relative'>
+    <div className="h-screen z-50 bg-background relative">
       <Header className="h-min w-full">
         <div className="flex gap-4">
           <Link
-            href={'/pizza'}
+            href={ROUTES.PIZZA(lang)}
           >
             <Image
               className="hover:grey-dark-filter"
@@ -30,7 +31,7 @@ export default async function Auth({ params }: PageParams) {
         </div>
       </Header>
       <Main className="mb-20 sm:mb-0">
-        <AuthPageProvider stage={{ defaultStage: {currentStage: 'phoneForm'}}}>
+        <AuthPageProvider stage={{ defaultStage: { currentStage: 'phoneForm' } }}>
           <Stepper />
         </AuthPageProvider>
       </Main>

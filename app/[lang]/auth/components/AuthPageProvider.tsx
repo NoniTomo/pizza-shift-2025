@@ -14,7 +14,7 @@ export function AuthPageProvider({ stage }: ProviderProps) {
   return (
     <StageProvider {...stage}>
       <AuthProvider>
-        <div className="max-w-[400px]">
+        <div className="max-w-[400px] flex flex-col gap-5 p-2">
           <Stepper />
         </div>
       </AuthProvider>

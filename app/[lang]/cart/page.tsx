@@ -17,7 +17,7 @@ export default async function Home({ params }: PageProps) {
   return (
     <AuthCheck>
       <Header className="h-min">
-        <Link href={ROUTES.PIZZA}>
+        <Link href={ROUTES.PIZZA(lang)}>
           <Image
             priority
             src={BackSvg}

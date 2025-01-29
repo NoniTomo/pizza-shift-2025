@@ -10,8 +10,8 @@ export function OtpForm() {
   const { state, functions } = useOtpForm()
 
   return (
-    <div className="flex flex-col gap-5">
-      <h1 className="pb-5 text-xl font-bold ">{t('auth')}</h1>
+    <>
+      <h1 className="pb-5 text-xl font-bold hidden sm:block">{t('auth')}</h1>
       <p className="font-inter text-base text-text">{t('formAuthOtpsDescription')}</p>
       <form className="flex flex-col gap-5" onSubmit={state.form.handleSubmit(functions.onSubmit)}>
         <TextField
@@ -38,6 +38,6 @@ export function OtpForm() {
       </form>
       {!!state.isEnding && <Button onClick={() => functions.handleGetOtp()} className="font-inter text-base text-text bg-background font-bold hover:underline shadow-none border-none">{t('buttonGetOtp')}</Button>}
       {!state.isEnding && <p className="font-inter text-sm text-secondary">{t('formAuthOtpsDelayMessage', { seconds: String(state.seconds) })}</p>}
-    </div>
+    </>
   )
 }

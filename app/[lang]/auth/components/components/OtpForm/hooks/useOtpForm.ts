@@ -2,7 +2,7 @@
 
 import { useGetUsersSessionsMutation, usePostAuthOtpMutation, usePostUsersSignInMutation } from '@/src/shared/api'
 import { ROUTES } from '@/src/shared/constants'
-import { useUser } from '@/src/shared/context'
+import { useI18n, useUser } from '@/src/shared/context'
 import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -13,6 +13,7 @@ import useTimer from './useTimer'
 export function useOtpForm() {
   const authContext = useAuth()
   const userContext = useUser()
+  const localeContext = useI18n()
   const { seconds, isEnding, start } = useTimer()
   const router = useRouter()
 
@@ -35,7 +36,7 @@ export function useOtpForm() {
       const userResponse = await getUsersSessionsMutation.mutateAsync({})
       if (userResponse.data.success) {
         userContext.set(userResponse.data.user)
-        router.push(ROUTES.PIZZA)
+        router.push(ROUTES.PIZZA(localeContext.value))
       }
     }
   }

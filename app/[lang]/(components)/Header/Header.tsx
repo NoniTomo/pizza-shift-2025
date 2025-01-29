@@ -1,6 +1,6 @@
 'use client'
 import { ROUTES } from '@/src/shared/constants'
-import { useUser } from '@/src/shared/context'
+import { useI18n, useUser } from '@/src/shared/context'
 import { useLocale } from '@/src/shared/hooks'
 import CartIcon from '@/static/icons/cart.svg'
 import LogInIcon from '@/static/icons/login.svg'
@@ -17,6 +17,7 @@ export interface HeaderProps {
 
 export function Header({ className, children }: HeaderProps) {
   const { t } = useLocale()
+  const locale = useI18n()
   const { value } = useUser()
   return (
     <>
@@ -32,14 +33,14 @@ export function Header({ className, children }: HeaderProps) {
                   iconSrc={ProfileIcon}
                   content={t('profile')}
                   alt={t('profile')}
-                  href={ROUTES.PROFILE}
+                  href={ROUTES.PROFILE(locale.value)}
                   type="row"
                 />
                 <NavButton
                   iconSrc={OrderIcon}
                   content={t('orders')}
                   alt={t('orders')}
-                  href={ROUTES.ORDER}
+                  href={ROUTES.ORDER(locale.value)}
                   type="row"
                 />
               </>
@@ -50,7 +51,7 @@ export function Header({ className, children }: HeaderProps) {
               iconSrc={CartIcon}
               content={t('cart')}
               alt={t('cart')}
-              href={ROUTES.CART}
+              href={ROUTES.CART(locale.value)}
               type="row"
             />
           )}
@@ -59,7 +60,7 @@ export function Header({ className, children }: HeaderProps) {
               iconSrc={LogInIcon}
               content={t('buttonLogIn')}
               alt={t('auth')}
-              href={ROUTES.AUTH}
+              href={ROUTES.AUTH(locale.value)}
               type="row"
             />
           )}

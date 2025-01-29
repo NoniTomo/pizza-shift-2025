@@ -18,6 +18,7 @@ import { API_URL } from '@/src/shared/constants'
 import { useCartPizzaStorage, useLocale } from '@/src/shared/hooks'
 import BackSvg from '@/static/icons/back.svg'
 import CancelIcon from '@/static/icons/cancel.svg'
+import ToppingChooseSvg from '@/static/icons/toppingChoose.svg'
 import Image from 'next/image'
 import { usePizzaCardModal } from './hooks/usePizzaCardModal'
 
@@ -73,25 +74,25 @@ export function PizzaCardModal({ pizza, triggerButton, className }: PizzaCardMod
           <DialogTitle className="hidden sm:block">
             <DialogClose></DialogClose>
           </DialogTitle>
-          <Main className="grid auto-cols-min grid-cols-1 p-0 sm:grid-cols-2 lg:max-w-[800px]">
+          <Main className="grid font-inter  auto-cols-min grid-cols-1 gap-4 sm:grid-cols-2 lg:max-w-[800px]">
             <Image
               priority
               className="mx-auto"
               src={`${API_URL}${pizza.img}`}
               alt={pizza.name}
-              height={250}
-              width={250}
+              height={300}
+              width={300}
             />
-            <div className="scrollbar flex flex-col gap-4 overflow-x-hidden overflow-y-scroll sm:h-[500px]">
-              <h1 className="font-inter text-3xl font-bold text-text">{pizza.name}</h1>
-              <p className="font-inter text-base text-secondary">
+            <div className="scrollbar flex flex-col gap-4 overflow-y-scroll sm:h-[500px]">
+              <h1 className=" text-3xl font-bold text-text">{pizza.name}</h1>
+              <p className=" text-base text-secondary">
                 {t(state.size.name)}
                 ,
                 {t(state.doughs.name)}
                 {' '}
                 {t('doughs')}
               </p>
-              <p className="text-balance font-inter text-lg text-secondary">
+              <p className="text-balance  text-lg text-secondary">
                 {pizza.ingredients.map((ingredient, index) => (
                   <span key={ingredient.name}>
                     {t(ingredient.name)}
@@ -101,11 +102,11 @@ export function PizzaCardModal({ pizza, triggerButton, className }: PizzaCardMod
               </p>
               <div className="h-max">
                 <Tabs value={state.size.name} onValueChange={functions.handleSize}>
-                  <TabsList className="h-max rounded-2xl bg-text-light">
+                  <TabsList className="h-max rounded-2xl bg-text-light w-full">
                     {SIZES.map(size => (
                       <TabsTrigger
                         key={size}
-                        className="h-max rounded-2xl text-lg lg:text-xl"
+                        className="h-max w-full rounded-2xl text-lg lg:text-xl"
                         value={size}
                       >
                         {t(size)}
@@ -115,11 +116,11 @@ export function PizzaCardModal({ pizza, triggerButton, className }: PizzaCardMod
                 </Tabs>
               </div>
               <Tabs value={state.doughs.name} onValueChange={functions.handleDoughs}>
-                <TabsList className="h-max rounded-2xl bg-text-light">
+                <TabsList className="h-max rounded-2xl bg-text-light w-full">
                   {DOUGHS.map(dough => (
                     <TabsTrigger
                       key={dough}
-                      className="h-max rounded-2xl text-lg lg:text-xl"
+                      className="h-max rounded-2xl text-lg lg:text-xl w-full"
                       value={dough}
                     >
                       {t(dough)}
@@ -132,24 +133,39 @@ export function PizzaCardModal({ pizza, triggerButton, className }: PizzaCardMod
                 <ToggleGroup
                   value={state.toppings.map(topping => topping.name)}
                   onValueChange={functions.handleValueChange}
-                  className="grid grid-cols-3"
+                  className="grid grid-cols-3 gap-2 p-2"
                   type="multiple"
                 >
                   {pizza.toppings.map((topping: PizzaIngredient) => (
                     <ToggleGroupItem
-                      className="flex h-full w-full flex-col gap-3 p-1 data-[state=on]:border-2 data-[state=on]:border-solid data-[state=on]:border-primary data-[state=on]:p-0"
+                      className="flex relative h-full w-full flex-col p-2 bg-background justify-between rounded-2xl border-background shadow-xl border-solid border-2 data-[state=on]:border-primary"
                       key={topping.name}
                       value={topping.name}
                     >
                       <Image
                         priority
-                        src={`${API_URL}${topping.img}`}
+                        src={ToppingChooseSvg}
                         alt={pizza.name}
-                        height={80}
-                        width={80}
+                        height={32}
+                        width={32}
+                        className={`absolute top-2 right-2 primary-filter ${state.toppings.find(toppingFind => toppingFind.name === topping.name) ? 'block' : 'hidden'}`}
                       />
-                      <h3>{t(topping.name)}</h3>
-                      <p>{topping.cost}</p>
+                      <div>
+                        <Image
+                          priority
+                          src={`${API_URL}${topping.img}`}
+                          alt={pizza.name}
+                          height={100}
+                          width={100}
+                        />
+                        <h3>{t(topping.name)}</h3>
+                      </div>
+                      <p className="font-bold">
+                        {topping.cost}
+                        {' '}
+                        ₽
+                      </p>
+
                     </ToggleGroupItem>
                   ))}
                 </ToggleGroup>

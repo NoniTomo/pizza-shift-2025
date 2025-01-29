@@ -2,6 +2,7 @@ import { Main } from '@/app/[lang]/(components)'
 import { Card, CardContent } from '@/src/shared/components'
 
 import { ROUTES } from '@/src/shared/constants'
+import { useI18n } from '@/src/shared/context'
 import { useLocale } from '@/src/shared/hooks'
 import SuccessIcon from '@/static/images/success.png'
 import Image from 'next/image'
@@ -12,6 +13,7 @@ import { useOrder } from '../../context/OrderContext'
 
 export function SuccessView() {
   const { t } = useLocale()
+  const localeContext = useI18n()
   const { value } = useOrder()
   return (
     <Main>
@@ -62,14 +64,14 @@ export function SuccessView() {
             </Card>
             <div className="flex w-full flex-col gap-3 sm:flex-row">
               <Link
-                href={ROUTES.ORDER}
+                href={ROUTES.ORDER(localeContext.value)}
                 className="text-text-dark h-max w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-center text-base shadow-none"
               >
                 {t('buttonOrderDetails')}
               </Link>
               <Link
                 className="h-max w-full rounded-2xl bg-primary py-4 text-center text-base text-text-light"
-                href={ROUTES.PIZZA}
+                href={ROUTES.PIZZA(localeContext.value)}
               >
                 {t('buttonToTheMain')}
               </Link>

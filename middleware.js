@@ -10,7 +10,7 @@ function getLocale(request) {
   const languages = (request.headers.has('accept-language')) ? new Negotiator({ headers: { 'accept-language': request.headers.get('accept-language') } }).languages() : []
   const defaultLocale = ['ru']
 
-  const lg = match(languages, LOCALES, defaultLocale)
+  const lg = match(languages, ['en', 'ru'], defaultLocale)
 
   return lg
 }
@@ -22,15 +22,15 @@ export function middleware(request) {
     locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   )
 
+  if (pathnameHasLocale)
+    return
+
   const locale = getLocale(request)
-  console.error(pathname)
+
   if (LOCALES.some(locale => pathname === `/${locale}`)) {
     request.nextUrl.pathname = `/${locale}/${DEFAULT_PATH}`
     return NextResponse.redirect(request.nextUrl)
   }
-
-  if (pathnameHasLocale)
-    return
 
   request.nextUrl.pathname = `/${locale}/${pathname !== '/' ? pathname : DEFAULT_PATH}`
 

@@ -1,12 +1,22 @@
+import { AuthCheck } from '@/src/shared/components'
 import { getDictionary } from '@/src/shared/helpers'
+import { Header, Main } from '../(components)'
+import { OrdersList } from './components/OrdersList/OrdersList'
+import { OrderTabs } from './components/OrderTabs/OrderTabs'
 
-export default async function Orders({ params }: PageParams) {
+export default async function Profile({ params }: PageParams) {
   const lang = (await params).lang
   const dict = getDictionary(lang)
 
   return (
-    <div className="bg-red-400 grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {dict.orders}
-    </div>
+    <AuthCheck>
+      <Header>
+        <h1>{dict.profile}</h1>
+      </Header>
+      <Main className="mb-20 sm:mb-0">
+        <OrderTabs />
+        <OrdersList />
+      </Main>
+    </AuthCheck>
   )
 }
