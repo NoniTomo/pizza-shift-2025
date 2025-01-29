@@ -20,24 +20,28 @@ export function usePaymentCardForm() {
 
   const registerWithMask = useHookFormMask(form.register)
   const onSubmit = async (data: Card) => {
-    const response = await postPizzaPaymentMutation.mutateAsync({
-      params: {
-        pizzas: orderContext.value?.cartPizzas?.map((cartPizza) => {
-          return {
-            doughs: cartPizza.pizza.doughs,
-            id: cartPizza.pizza.id,
-            name: cartPizza.pizza.name,
-            size: cartPizza.pizza.size,
-            toppings: cartPizza.pizza.toppings,
-          }
-        }),
-        debitCard: data,
-        person: orderContext.value?.person,
-        receiverAddress: orderContext.value?.receiverAddress,
-      } as CreatePizzaPaymentDto,
-    })
-    if (response.data.success)
-      stage.set('successView')
+    const person = orderContext.value?.person
+    const address = orderContext.value?.receiverAddress
+    if (person && address) {
+      const response = await postPizzaPaymentMutation.mutateAsync({
+        params: {
+          pizzas: orderContext.value?.cartPizzas?.map((cartPizza) => {
+            return {
+              doughs: cartPizza.pizza.doughs,
+              id: cartPizza.pizza.id,
+              name: cartPizza.pizza.name,
+              size: cartPizza.pizza.size,
+              toppings: cartPizza.pizza.toppings,
+            }
+          }),
+          debitCard: data,
+          person: { firstname: person.firstname, lastname: person.lastname, middlename: person.middlename, phone: person.phone },
+          receiverAddress: { apartment: address.apartment, comment: address.comment, house: address.house, street: address.street },
+        } as CreatePizzaPaymentDto,
+      })
+      if (response.data.success)
+        stage.set('successView')
+    }
   }
 
   return {

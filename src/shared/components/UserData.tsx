@@ -1,7 +1,6 @@
 import type { UseFormReturn } from 'react-hook-form'
 import {
   filterInputAlphabet,
-  filterInputCity,
   filterInputEmail,
   filterInputOnlyNumbers,
   validateAlphabetAndSpecialSymbols,
@@ -21,21 +20,6 @@ export function UserData({ form, onSubmit, id }: UserDataFormProps) {
   return (
     <form id={id} className="flex flex-col gap-5" onSubmit={form.handleSubmit(onSubmit)}>
       <TextField
-        id="firstname"
-        register={form.register('firstname', {
-          required: t('formRuleRequired'),
-          maxLength: { value: 60, message: 'Максимум один символ' },
-          validate: validateAlphabetAndSpecialSymbols,
-        })}
-        placeholder="Иван"
-        error={form.formState.errors.firstname?.message}
-        label={t('formYourDataFirstname')}
-        isDisabled={false}
-        isRequired={true}
-        onKeyDown={filterInputAlphabet}
-        onPaste={filterInputAlphabet}
-      />
-      <TextField
         id="middlename"
         register={form.register('middlename', {
           required: t('formRuleRequired'),
@@ -45,6 +29,21 @@ export function UserData({ form, onSubmit, id }: UserDataFormProps) {
         placeholder={t('formYourDataMiddlename')}
         error={form.formState.errors.middlename?.message}
         label={t('formYourDataMiddlename')}
+        isDisabled={false}
+        isRequired={true}
+        onKeyDown={filterInputAlphabet}
+        onPaste={filterInputAlphabet}
+      />
+      <TextField
+        id="firstname"
+        register={form.register('firstname', {
+          required: t('formRuleRequired'),
+          maxLength: { value: 60, message: 'Максимум один символ' },
+          validate: validateAlphabetAndSpecialSymbols,
+        })}
+        placeholder={t('formYourDataFirstname')}
+        error={form.formState.errors.firstname?.message}
+        label={t('formYourDataFirstname')}
         isDisabled={false}
         isRequired={true}
         onKeyDown={filterInputAlphabet}
@@ -95,15 +94,13 @@ export function UserData({ form, onSubmit, id }: UserDataFormProps) {
         id="city"
         register={form.register('city', {
           required: t('formRuleRequired'),
-          maxLength: { value: 60, message: t('formRuleMaxLength', { length: String(60) }) },
-          validate: validateAlphabetAndSpecialSymbols,
+          maxLength: { value: 100, message: t('formRuleMaxLength', { length: String(60) }) },
         })}
         placeholder={t('formYourDataCityPlaceholder')}
         error={form.formState.errors.city?.message}
         label={t('formYourDataCity')}
         isDisabled={false}
         isRequired={true}
-        onKeyDown={filterInputCity}
       />
     </form>
   )

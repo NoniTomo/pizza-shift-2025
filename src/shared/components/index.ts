@@ -1,5 +1,6 @@
 export * from './AuthCheck'
 export * from './NavLink'
+export * from './PizzaInfo'
 export * from './TextField'
 export * from './ui/button'
 export * from './ui/card'

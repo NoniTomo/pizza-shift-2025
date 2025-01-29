@@ -27,6 +27,7 @@ export function usePizzaCardModal({ pizza }: usePizzaCardProps) {
 
     setTopping(newToppings)
   }
+
   return {
     state: { size, doughs, toppings, modal },
     functions: { handleDoughs, handleSize, handleValueChange, setModal },

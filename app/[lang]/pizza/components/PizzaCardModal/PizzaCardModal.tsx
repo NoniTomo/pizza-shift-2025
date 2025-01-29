@@ -8,6 +8,7 @@ import {
   DialogContent,
   DialogTitle,
   DialogTrigger,
+  PizzaInfo,
   Tabs,
   TabsList,
   TabsTrigger,
@@ -33,7 +34,7 @@ export interface PizzaCardModalProps {
 
 export function PizzaCardModal({ pizza, triggerButton, className }: PizzaCardModalProps) {
   const { t } = useLocale()
-  const { add } = useCartPizzaStorage()
+  const { add, getPizzaPrice } = useCartPizzaStorage()
   const { state, functions } = usePizzaCardModal({ pizza })
 
   return (
@@ -85,18 +86,12 @@ export function PizzaCardModal({ pizza, triggerButton, className }: PizzaCardMod
             />
             <div className="scrollbar flex flex-col gap-4 overflow-y-scroll sm:h-[500px]">
               <h1 className=" text-3xl font-bold text-text">{pizza.name}</h1>
-              <p className=" text-base text-secondary">
-                {t(state.size.name)}
-                ,
-                {t(state.doughs.name)}
-                {' '}
-                {t('doughs')}
-              </p>
+              <PizzaInfo pizza={{ pizza: { price: getPizzaPrice({ description: pizza.description, doughs: state.doughs, imgSrc: pizza.img, name: pizza.name, size: state.size, id: pizza.id, toppings: state.toppings }) ?? 0, description: pizza.description, doughs: state.doughs, imgSrc: pizza.img, name: pizza.name, size: state.size, id: pizza.id, toppings: state.toppings } }} />
               <p className="text-balance  text-lg text-secondary">
                 {pizza.ingredients.map((ingredient, index) => (
                   <span key={ingredient.name}>
+                    {index > 0 && ', '}
                     {t(ingredient.name)}
-                    {index < pizza.ingredients.length - 1 && ', '}
                   </span>
                 ))}
               </p>
@@ -174,15 +169,7 @@ export function PizzaCardModal({ pizza, triggerButton, className }: PizzaCardMod
             <Button
               className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light sm:col-start-2"
               onClick={() =>
-                add({
-                  description: pizza.description,
-                  doughs: state.doughs,
-                  imgSrc: pizza.img,
-                  name: pizza.name,
-                  size: state.size,
-                  pizzaId: pizza.id,
-                  toppings: state.toppings,
-                })}
+                add({ description: pizza.description, doughs: state.doughs, imgSrc: pizza.img, name: pizza.name, size: state.size, pizzaId: pizza.id, toppings: state.toppings })}
             >
               {t('buttonAddToCart')}
             </Button>

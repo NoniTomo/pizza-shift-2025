@@ -109,6 +109,11 @@ export function useCartPizzaStorage() {
   const clear = () => localStorage.setItem(LOCAL_STORAGE_PIZZA_LIST_NAME, JSON.stringify([]))
   const get = (): CartPizza[] => getLocalStorage()
 
+  const getPizzaPrice = (pizza: OrderedPizza & {
+    imgSrc: string
+    description: string
+  }): number => pizza.size.price + pizza.doughs.price + pizza.toppings.reduce((sum, topping) => sum + topping.cost, 0)
+
   const getTotalPrice = (pizzas: CartPizza[]): number =>
     pizzas.reduce((totalPrice, cartPizza) => totalPrice + cartPizza.count * cartPizza.pizza.price, 0)
 
@@ -117,6 +122,7 @@ export function useCartPizzaStorage() {
     remove,
     get,
     getTotalPrice,
+    getPizzaPrice,
     clear,
   }
 }

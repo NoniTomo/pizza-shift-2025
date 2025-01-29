@@ -1,7 +1,7 @@
 'use client'
 
 import type { AddProps, RemoveProps } from '@/src/shared/hooks'
-import { Button, Card, CardContent, Separator } from '@/src/shared/components'
+import { Button, Card, CardContent, PizzaInfo, Separator } from '@/src/shared/components'
 
 import { API_URL } from '@/src/shared/constants'
 import { useCartPizzaStorage, useLocale } from '@/src/shared/hooks'
@@ -43,8 +43,12 @@ export function PizzaList() {
                   <h3 className="col-span-6 m-auto w-full font-semibold md:col-span-1 md:row-span-3 md:row-start-1 md:text-left">
                     {cartPizza.pizza.name}
                   </h3>
-                  <p className="col-span-6 m-auto w-full md:col-span-2 md:col-start-2 md:row-span-3 md:row-start-1 md:text-left">
-                    {cartPizza.pizza.description}
+                  <p className="col-span-6 flex flex-col gap-1 m-auto w-full md:col-span-2 md:col-start-2 md:row-span-3 md:row-start-1 md:text-left">
+                    <span>
+                      {cartPizza.pizza.description}
+                      {' '}
+                    </span>
+                    <span><PizzaInfo pizza={cartPizza} /></span>
                   </p>
                   <div className="col-span-2 m-auto flex w-full max-w-20 flex-nowrap overflow-hidden rounded-xl text-black md:col-span-1 md:row-span-3">
                     <Button

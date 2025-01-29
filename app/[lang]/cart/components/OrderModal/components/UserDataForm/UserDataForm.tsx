@@ -18,7 +18,7 @@ export function UserDataForm() {
         <UserData form={state.form} id="userDataFormID" onSubmit={functions.onSubmit} />
         <div className="flex gap-3">
           <Button
-            className="text-text-dark hidden w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none sm:flex"
+            className="text-text-dark h-full hidden w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none sm:flex"
             onClick={() => setModalState(false)}
           >
             {t('buttonBack')}

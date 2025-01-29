@@ -19,8 +19,10 @@ export function useUserDataForm() {
     },
   })
 
-  const onSubmit = (data: Omit<User, 'email' | 'city'>) => {
-    orderContext.set({ ...(orderContext.value ?? {}), person: data })
+  const onSubmit = (data: Omit<User, 'email'>) => {
+    const { city, ...person } = data
+    orderContext.set({ ...(orderContext.value ?? {}), person })
+    orderContext.set({ ...(orderContext.value ?? {}), receiverAddress: { comment: city, apartment: city, house: city, street: city } })
     set('cardForm')
   }
 
