@@ -1,11 +1,15 @@
 import { usePatchUsersProfileMutation } from '@/src/shared/api'
+import { ROUTES } from '@/src/shared/constants'
 import { useUser } from '@/src/shared/context'
+import { deleteCookie } from 'cookies-next'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
 export function useProfileForm() {
-  const { value } = useUser()
+  const { value, set } = useUser()
   const [openModal, setOpenModal] = React.useState(false)
+  const router = useRouter()
 
   const patchUsersProfileMutation = usePatchUsersProfileMutation()
 
@@ -30,7 +34,12 @@ export function useProfileForm() {
       },
     })
   }
-  const onLeave = () => {}
+
+  const onLeave = () => {
+    deleteCookie('token')
+    set(undefined)
+    router.push(ROUTES.PIZZA)
+  }
 
   return {
     state: { form, openModal, isLoading: patchUsersProfileMutation.isPending },

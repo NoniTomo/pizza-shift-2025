@@ -19,7 +19,6 @@ export function OtpForm() {
           register={state.form.register('phone')}
           placeholder={t('formAuthPhonePlaceholder')}
           error={state.form.formState.errors.phone?.message}
-          label={t('formAuthPhonePlaceholder')}
           isDisabled={true}
           isRequired={true}
           onKeyDown={filterInputOnlyNumbers}
@@ -30,7 +29,6 @@ export function OtpForm() {
           register={state.form.register('otp')}
           placeholder={t('formAuthOtpsPlaceholder')}
           error={state.form.formState.errors.phone?.message}
-          label={t('formAuthOtpsPlaceholder')}
           isDisabled={false}
           isRequired={true}
           onKeyDown={filterInputOnlyNumbers}

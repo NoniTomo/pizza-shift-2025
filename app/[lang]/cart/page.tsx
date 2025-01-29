@@ -1,3 +1,4 @@
+import { AuthCheck } from '@/src/shared/components'
 import { ROUTES } from '@/src/shared/constants'
 import { getDictionary } from '@/src/shared/helpers'
 import BackSvg from '@/static/icons/back.svg'
@@ -14,7 +15,7 @@ export default async function Home({ params }: PageProps) {
   const dict = getDictionary(lang)
 
   return (
-    <>
+    <AuthCheck>
       <Header className="h-min">
         <Link href={ROUTES.PIZZA}>
           <Image
@@ -38,6 +39,6 @@ export default async function Home({ params }: PageProps) {
           <OrderModal />
         </OrderModalProvider>
       </Main>
-    </>
+    </AuthCheck>
   )
 }

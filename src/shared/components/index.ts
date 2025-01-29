@@ -1,3 +1,4 @@
+export * from './AuthCheck'
 export * from './NavLink'
 export * from './TextField'
 export * from './ui/button'
