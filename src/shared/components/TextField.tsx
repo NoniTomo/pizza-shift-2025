@@ -26,7 +26,7 @@ export function TextField({
     <div className={`relative flex flex-col gap-1 ${className}`}>
       <label htmlFor={id} className="mb-1">
         {label}
-        <span>{isRequired ? '*' : ''}</span>
+        <span>{isRequired && label ? '*' : ''}</span>
       </label>
       <input
         {...props}

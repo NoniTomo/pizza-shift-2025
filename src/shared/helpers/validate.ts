@@ -61,12 +61,6 @@ export function filterInputEmail(e: KeyboardEvent<HTMLInputElement> | ClipboardE
   check(e, testRegex)
 }
 
-export function filterInputCity(e: KeyboardEvent<HTMLInputElement> | ClipboardEvent<HTMLInputElement>) {
-  const testRegex = /\S/
-
-  check(e, testRegex)
-}
-
 // eslint-disable-next-line regexp/no-obscure-range
 const cyrillicRegex = /^[а-яА-ЯёЁ\s`-]+$/
 const latinRegex = /^[a-z\s`-]+$/i

@@ -10,7 +10,7 @@ export interface UserProviderProps {
 }
 
 export function UserProvider({ children, defaultUser }: UserProviderProps) {
-  const [user, setUser] = React.useState<User>(defaultUser!)
+  const [user, setUser] = React.useState<User | undefined>(defaultUser)
 
   const value = React.useMemo(() => ({ value: user, set: setUser }), [user])
 

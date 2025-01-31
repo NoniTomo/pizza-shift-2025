@@ -7,20 +7,22 @@ function compareObjects(first: { [key: string]: any }, second: { [key: string]: 
 }
 
 export interface RemoveProps {
-  pizzaId: string
-  toppings: OrderedPizzaIngredient[]
-  size: PizzaSize
-  doughs: PizzaDough
+  id: string
+  choosenToppings: PizzaIngredient[]
+  choosenSize: PizzaSize
+  choosenDough: PizzaDough
 }
 
 export interface AddProps {
-  pizzaId: string
+  id: string
   name: string
-  toppings: OrderedPizzaIngredient[]
-  size: PizzaSize
-  doughs: PizzaDough
-  imgSrc: string
-  description: string
+  img: string
+  sizes: PizzaSize[]
+  dough: PizzaDough[]
+  toppings: PizzaIngredient[]
+  choosenDough: PizzaDough
+  choosenSize: PizzaSize
+  choosenToppings: PizzaIngredient[]
 }
 
 export function useCartPizzaStorage() {
@@ -33,19 +35,19 @@ export function useCartPizzaStorage() {
       ? localStorage.setItem(LOCAL_STORAGE_PIZZA_LIST_NAME, JSON.stringify(newPizzas))
       : []
 
-  const add = ({ pizzaId, name, toppings = [], size, doughs, imgSrc, description }: AddProps) => {
+  const add = (props: AddProps) => {
     const pizzas = getLocalStorage()
 
-    const sortToppings = [...toppings].sort((topping1, topping2) =>
+    const sortToppings = [...props.choosenToppings].sort((topping1, topping2) =>
       topping1.name < topping2.name ? 1 : 0,
     )
     const pizzaIndex = pizzas.findIndex(
       (pizza: CartPizza) =>
-        pizza.pizza.id === pizzaId
-        && compareObjects(pizza.pizza.doughs, doughs)
-        && compareObjects(pizza.pizza.size, size)
+        pizza.pizza.id === props.id
+        && compareObjects(pizza.pizza.choosenDough, props.choosenDough)
+        && compareObjects(pizza.pizza.choosenSize, props.choosenSize)
         && sortToppings.reduce(
-          (compare, topping, index) => compare && compareObjects(pizza.pizza.toppings[index], topping),
+          (compare, topping, index) => compare && compareObjects(pizza.pizza.choosenToppings[index], topping),
           true,
         ),
     )
@@ -61,14 +63,8 @@ export function useCartPizzaStorage() {
       newPizzas.push({
         count: 1,
         pizza: {
-          id: pizzaId,
-          doughs,
-          name,
-          size,
-          toppings,
-          description,
-          imgSrc,
-          price: size.price + doughs.price + toppings.reduce((sum, topping) => sum + topping.cost, 0),
+          ...props,
+          price: props.choosenSize.price + props.choosenDough.price + props.choosenToppings.reduce((sum, topping) => sum + topping.cost, 0),
         },
       })
     }
@@ -76,19 +72,19 @@ export function useCartPizzaStorage() {
     setLocalStorage(newPizzas)
   }
 
-  const remove = ({ pizzaId, toppings = [], size, doughs }: RemoveProps) => {
+  const remove = (props: RemoveProps) => {
     const pizzas = getLocalStorage()
 
-    const sortToppings = [...toppings].sort((topping1, topping2) =>
+    const sortToppings = [...props.choosenToppings].sort((topping1, topping2) =>
       topping1.name < topping2.name ? 1 : 0,
     )
     const pizzaIndex = pizzas.findIndex(
       (pizza: CartPizza) =>
-        pizza.pizza.id === pizzaId
-        && compareObjects(pizza.pizza.doughs, doughs)
-        && compareObjects(pizza.pizza.size, size)
+        pizza.pizza.id === props.id
+        && compareObjects(pizza.pizza.choosenDough, props.choosenDough)
+        && compareObjects(pizza.pizza.choosenSize, props.choosenSize)
         && sortToppings.reduce(
-          (compare, topping, index) => compare && compareObjects(pizza.pizza.toppings[index], topping),
+          (compare, topping, index) => compare && compareObjects(pizza.pizza.choosenToppings[index], topping),
           true,
         ),
     )
@@ -109,14 +105,10 @@ export function useCartPizzaStorage() {
   const clear = () => localStorage.setItem(LOCAL_STORAGE_PIZZA_LIST_NAME, JSON.stringify([]))
   const get = (): CartPizza[] => getLocalStorage()
 
-  const getTotalPrice = (pizzas: CartPizza[]): number =>
-    pizzas.reduce((totalPrice, cartPizza) => totalPrice + cartPizza.count * cartPizza.pizza.price, 0)
-
   return {
     add,
     remove,
     get,
-    getTotalPrice,
     clear,
   }
 }

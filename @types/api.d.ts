@@ -133,29 +133,30 @@ interface CreatePizzaPaymentDto {
 }
 
 interface PizzaOrder {
+  _id: string
   pizzas: OrderedPizza[]
   person: Omit<User, 'email' | 'city'>
   receiverAddress: Address
-  status: 0 | 1 | 2 | 3 | 4 // 0 - заказ принят ..., 4 - заказ готов
+  status: 0 | 1 | 2 | 3 | 4 // 0 - заказ принят ..., 3 - заказ готов, 4 - заказ отменен
   cancellable: boolean
 }
 
 interface PizzaPaymentResponse {
   success: boolean
   reason: string
-  catalog: PizzaOrder
+  order: PizzaOrder
 }
 
 interface PizzaOrdersResponse {
   success: boolean
   reason: string
-  catalog: PizzaOrder[]
+  orders: PizzaOrder[]
 }
 
 interface PizzaOrderResponse {
   success: boolean
   reason: string
-  catalog: PizzaOrder
+  order: PizzaOrder
 }
 
 interface CancelPizzaOrderDto {
