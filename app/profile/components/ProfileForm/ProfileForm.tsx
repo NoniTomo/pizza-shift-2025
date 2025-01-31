@@ -4,6 +4,8 @@ import { ModalCancel, UserDataFields } from '@/src/components'
 import { Button } from '@/src/shared/components'
 import { useLocale } from '@/src/shared/hooks'
 
+import { SelectLocale } from './components/SelectLocale/SelectLocale'
+import { SelectTheme } from './components/SelectTheme/SelectTheme'
 import { useProfileForm } from './hooks/useProfileForm'
 
 export function ProfileForm() {
@@ -14,6 +16,16 @@ export function ProfileForm() {
     <>
       <h1 className="hidden pb-5 text-xl font-bold md:block">{t('profile')}</h1>
       <div className="flex max-w-[600px] flex-col gap-5">
+        <div className="flex gap-3">
+          <div className="w-full">
+            <h3>{t('language')}</h3>
+            <SelectLocale />
+          </div>
+          <div className="w-full">
+            <h3>{t('theme')}</h3>
+            <SelectTheme />
+          </div>
+        </div>
         <UserDataFields form={state.form} id="userDataFormID" onSubmit={functions.onSubmit} />
         <div className="flex flex-col-reverse gap-3 sm:flex-row">
           <ModalCancel

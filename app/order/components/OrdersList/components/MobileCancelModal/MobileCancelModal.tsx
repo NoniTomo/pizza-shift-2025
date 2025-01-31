@@ -13,10 +13,10 @@ import React from 'react'
 
 export interface MobileCancelModalProps {
   order: PizzaOrder
-  closeHandle: () => void
+  closeHandler: () => void
 }
 
-export function MobileCancelModal({ order, closeHandle }: MobileCancelModalProps) {
+export function MobileCancelModal({ order, closeHandler }: MobileCancelModalProps) {
   const { t } = useLocale()
   return (
     <div className="sm:hidden fixed z-50 top-0 bottom-0 bg-background">
@@ -24,7 +24,7 @@ export function MobileCancelModal({ order, closeHandle }: MobileCancelModalProps
         <div className="flex w-full justify-end">
           <Button
             className="border-none bg-background shadow-none"
-            onClick={() => closeHandle()}
+            onClick={() => closeHandler()}
           >
             <Image
               className="hover:grey-dark-filter"
@@ -46,11 +46,11 @@ export function MobileCancelModal({ order, closeHandle }: MobileCancelModalProps
           <Card className="w-full py-4 px-1 border-none shadow-none sm:rounded-xl sm:border-2 sm:border-solid sm:shadow-sm">
             <CardContent className="flex flex-col gap-3">
               <div className="flex w-full flex-col gap-1">
-                <p className="text-sm text-gray-400">{t('viewSuccesOrder')}</p>
+                <p className="text-sm text-secondary-secondary-2">{t('viewCancelOrder')}</p>
                 {order.pizzas.map(
                   (pizza, index) =>
                     (
-                      <span className="flex gap-1">
+                      <span key={index} className="flex gap-1">
                         {`${index + 1}.`}
                         <PizzaInfo
                           className="text-text"

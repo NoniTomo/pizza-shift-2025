@@ -79,28 +79,26 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
       <TextField
         id="email"
         register={form.register('email', {
-          required: t('formRuleRequired'),
           validate: validateEmail,
         })}
         placeholder={t('formYourDataEmailPlaceholder')}
         error={form.formState.errors.email?.message}
         label={t('formYourDataEmail')}
         isDisabled={false}
-        isRequired={true}
+        isRequired={false}
         onKeyDown={filterInputEmail}
         onPaste={filterInputEmail}
       />
       <TextField
         id="city"
         register={form.register('city', {
-          required: t('formRuleRequired'),
           maxLength: { value: 100, message: t('formRuleMaxLength', { length: String(60) }) },
         })}
         placeholder={t('formYourDataCityPlaceholder')}
         error={form.formState.errors.city?.message}
         label={t('formYourDataCity')}
         isDisabled={false}
-        isRequired={true}
+        isRequired={false}
       />
     </form>
   )

@@ -33,7 +33,7 @@ export function PizzaList() {
     <div className="flex flex-col gap-5 pb-40 sm:pb-0">
       {value?.cartPizzas?.map((cartPizza, index) => (
         <div key={index} className="flex flex-col gap-5">
-          {index > 0 && (<Separator className="h-[2px] bg-text-light" />)}
+          {index > 0 && (<Separator className="h-[2px] bg-secondary" />)}
           <Card className="border-none p-0 shadow-none">
             <CardContent>
               <div className="flex items-center justify-center gap-5">
@@ -53,10 +53,10 @@ export function PizzaList() {
                       <PizzaInfo pizza={{ doughs: cartPizza.pizza.choosenDough, name: cartPizza.pizza.name, size: cartPizza.pizza.choosenSize, toppings: cartPizza.pizza.choosenToppings }} />
                     </span>
                   </p>
-                  <div className="col-span-2 m-auto w-full flex max-w-20 flex-nowrap overflow-hidden rounded-xl text-black md:col-span-1 md:row-span-3">
+                  <div className="col-span-2 m-auto bg-secondary w-full flex max-w-20 flex-nowrap overflow-hidden rounded-xl text-secondary-secondary-foreground md:col-span-1 md:row-span-3">
                     <Button
                       size="sm"
-                      className="w-1/3 rounded-none bg-text-light text-base shadow-none hover:bg-secondary"
+                      className="w-1/3 rounded-none bg-secondary text-base shadow-none hover:bg-secondary-secondary-dark"
                       onClick={() =>
                         handleDelete({
                           choosenDough: cartPizza.pizza.choosenDough,
@@ -67,12 +67,12 @@ export function PizzaList() {
                     >
                       -
                     </Button>
-                    <div className="flex w-1/3 items-center justify-center rounded-none bg-text-light text-base">
+                    <div className="flex w-1/3 items-center justify-center rounded-none text-base">
                       <p>{cartPizza.count}</p>
                     </div>
                     <Button
                       size="sm"
-                      className="w-1/3 rounded-none bg-text-light text-base shadow-none hover:bg-secondary"
+                      className="w-1/3 rounded-none text-base bg-secondary shadow-none hover:bg-secondary-secondary-dark"
                       onClick={() =>
                         handleAdd({
                           id: cartPizza.pizza.id,
@@ -91,14 +91,14 @@ export function PizzaList() {
                   </div>
                   <PizzaCardModal
                     type="change"
-                    className="col-span-2 m-auto p-0 text-sm underline hover:text-text md:col-span-1 md:row-span-3"
+                    className="col-span-2 m-auto p-0 text-sm underline md:col-span-1 md:row-span-3"
                     pizza={cartPizza.pizza}
                     action={() => set({ cartPizzas: storage.get() })}
                     triggerButton={(
                       <Button
                         size="sm"
                         variant="link"
-                        className="hover:text-text text-secondary"
+                        className="hover:text-text text-secondary-secondary-2"
                       >
                         {t('buttonChanged')}
                       </Button>

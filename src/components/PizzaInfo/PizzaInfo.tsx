@@ -17,7 +17,7 @@ export function PizzaInfo({
 }: PizzaInfoProps) {
   const { t } = useLocale()
   return (
-    <span className={`text-secondary ${className}`} {...props}>
+    <span className={`text-accent ${className}`} {...props}>
       <span>
         {`${pizza.name}, ${t(pizza.size.name)}, ${t(pizza.doughs.name)}`}
       </span>

@@ -5,11 +5,15 @@
   "cart": "Корзина",
   "auth": "Авторизация",
 
+  "language": "Язык",
   "costPizza": "от {cost} ₽",
   "orderCost": "Стоимость заказа: {cost}",
   "seasonToTaste": "Добавить по вкусу",
   "cartEmpty": "Корзина пуста",
-  "userIsNotOrders": "Сделайте свой первый заказ!",
+  "userIsNotOrders": "Сделайте заказ!",
+  "lightTheme": "Светлая тема",
+  "darkTheme": "Темная тема",
+  "theme": "Тема",
 
   "leaveModalQuestion": "Вы точно хотите выйти?",
   "cancelOrderModalQuestion": "Отменить заказ?",
@@ -47,6 +51,7 @@
   "viewOrderAddress": "Адрес доставки",
   "viewOrderOrderAmount": "Сумма заказа",
   "viewOrderInOrder": "Состав заказа",
+  "viewCancelOrder": "Заказ отменен",
 
   "formAuthPhoneDescription": "Введите номер телефона для входа в личный кабинет",
   "formAuthPhonePlaceholder": "89999999999",

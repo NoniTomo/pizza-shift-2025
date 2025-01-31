@@ -59,7 +59,6 @@ export function ModalCancel({
         <DialogTitle>
           <DialogClose />
         </DialogTitle>
-
         <div>
           <div className="flex w-full flex-col  gap-5">
             <DialogDescription className="flex w-full flex-col items-center justify-center gap-5 text-center">

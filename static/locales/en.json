@@ -5,11 +5,15 @@
   "cart": "Cart",
   "auth": "Authorization",
 
+  "language": "Language",
   "costPizza": "from {cost} ₽",
   "orderCost": "Order cost: {cost}",
   "seasonToTaste": "Season to taste",
   "cartEmpty": "Cart is empty",
   "userIsNotOrders": "Make your first order!",
+  "lightTheme": "Light theme",
+  "darkTheme": "Dark theme",
+  "theme": "Theme",
 
   "leaveModalQuestion": "You sure you want to get out?",
   "cancelOrderModalQuestion": "Cancel the order??",
@@ -47,6 +51,7 @@
   "viewOrderAddress": "Delivery address",
   "viewOrderOrderAmount": "Order amount",
   "viewOrderInOrder": "In order",
+  "viewCancelOrder": "Order is canceled",
 
   "formAuthPhoneDescription": "Enter the phone number to log in",
   "formAuthPhonePlaceholder": "89999999999",

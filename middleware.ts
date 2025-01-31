@@ -4,8 +4,7 @@ import Negotiator from 'negotiator'
 import { NextResponse } from 'next/server'
 import { getUsersSession } from './src/shared/api/requests'
 import { PROTECTED_ROUTES, ROUTES } from './src/shared/constants'
-
-const LOCALES = ['en', 'ru']
+import { LOCALES } from './src/shared/constants/locales'
 
 function getLocale(request: NextRequest) {
   const acceptLanguage = request.headers.get('accept-language')

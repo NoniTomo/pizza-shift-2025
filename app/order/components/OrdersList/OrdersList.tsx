@@ -13,20 +13,20 @@ export function OrdersList() {
   const { t } = useLocale()
 
   if (state.isLoading) {
-    return Array.from(Array.from({ length: 10 }), (_, index) => <Skeleton key={index} className="w-full h-[50px] rounded-2xl" />,
+    return Array.from(Array.from({ length: 3 }), (_, index) => <Skeleton key={index} className="w-full h-[150px] rounded-2xl" />,
     )
   }
 
   if (state.activeTab === 'active') {
     return (
-      <ul>
+      <ul className="flex flex-col gap-3">
         {!state.isNotActiveOrder
         && state.activeOrdersList.map(order => (
           <li key={order._id}>
             {state.displayMobileMessage
             && (
               <MobileCancelModal
-                closeHandle={() => functions.setDisplayMobileMessage(false)}
+                closeHandler={() => functions.setDisplayMobileMessage(false)}
                 order={order}
               />
             )}
@@ -44,7 +44,7 @@ export function OrdersList() {
                 open={state.open}
                 setOpen={functions.setOpen}
               >
-                <Button className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light sm:col-start-2">
+                <Button className="h-max w-full rounded-2xl bg-primary py-4 sm:col-start-2">
                   {t('buttonCancelTheOrder')}
                 </Button>
               </ModalCancel>
@@ -54,8 +54,8 @@ export function OrdersList() {
         {state.isNotActiveOrder
         && (
           <div className="flex flex-col gap-3">
-            <h3 className="font-inter text-xl font-bold text-text">{t('userIsNotOrders')}</h3>
-            <Link href={ROUTES.PIZZA} className="h-max text-center w-max px-10 rounded-2xl bg-primary py-4 text-base text-text-light sm:col-start-2">
+            <h3 className="font-inter text-xl font-bold ">{t('userIsNotOrders')}</h3>
+            <Link href={ROUTES.PIZZA} className="h-max text-center bg-primary w-max px-10 rounded-2xl py-4 sm:col-start-2">
               {t('buttonToPizzas')}
             </Link>
           </div>
@@ -71,14 +71,14 @@ export function OrdersList() {
           <>
             {!state.isNotHistoryOrder
             && state.historyOrdersList.map((order, index) => (
-              <li key={order._id}>
-                {index > 0 && (<Separator className="h-[2px] bg-text-light" />)}
+              <li key={order._id} className="flex flex-col gap-3">
+                {index > 0 && (<Separator className="h-[2px] bg-secondary" />)}
                 <OrderCard
                   variant="history"
                   order={order}
                 >
                   <Link
-                    className="font-inter text-base text-text bg-background font-bold hover:underline shadow-none border-none"
+                    className="font-inter text-base bg-background font-bold hover:underline shadow-none border-none"
                     href={ROUTES.ORDER_ID(order._id)}
                   >
                     {t('buttonMoreDetails')}
@@ -86,7 +86,14 @@ export function OrdersList() {
                 </OrderCard>
               </li>
             ))}
-            {state.isNotHistoryOrder && <h3 className="font-inter text-3xl font-bold text-text">{t('userIsNotOrders')}</h3>}
+            {state.isNotHistoryOrder && (
+              <div className="flex flex-col gap-3">
+                <h3 className="font-inter text-xl font-bold ">{t('userIsNotOrders')}</h3>
+                <Link href={ROUTES.PIZZA} className="h-max text-center w-max px-10 rounded-2xl bg-primary py-4 text-base -light sm:col-start-2">
+                  {t('buttonToPizzas')}
+                </Link>
+              </div>
+            )}
           </>
         )}
       </ul>

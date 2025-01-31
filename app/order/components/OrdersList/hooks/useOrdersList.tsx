@@ -1,13 +1,16 @@
 import { useGetPizzaOrdersQuery } from '@/src/shared/api/hooks/useGetPizzaOrdersQuery'
 import { usePutPizzaOrdersCancelMutation } from '@/src/shared/api/hooks/usePutPizzaOrdersCancelMutation'
 import { useMediaQuery } from '@siberiacancode/reactuse'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
+
+const HISTORY_TAB: OrdersTabs = 'history'
 
 export function useOrdersList() {
   const searchParams = useSearchParams()
   const isMobile = useMediaQuery('(max-width: 640px)')
   const router = useRouter()
+  const pathname = usePathname()
 
   const activeTab = searchParams.get('tab') as OrdersTabs
   const [orders, setOrders] = React.useState<PizzaOrder[]>([])
@@ -22,10 +25,10 @@ export function useOrdersList() {
     await putPizzaOrdersCancelMutation.mutateAsync({
       params: { orderId },
     })
-    if (!isMobile)
+    if (isMobile)
       setDisplayMobileMessage(true)
     setOpen(false)
-    router.refresh()
+    router.replace(`${pathname}?tab=${HISTORY_TAB}`)
   }
 
   const historyOrdersList = orders.filter(order => order.status === 4 || order.status === 3) ?? []

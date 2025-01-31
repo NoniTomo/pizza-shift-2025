@@ -23,7 +23,7 @@ export function OrderModal() {
         <DialogTrigger asChild>
           <FooterCart cost={getTotalPrice(value?.cartPizzas?.map((cartPizza) => { return { count: cartPizza.count, choosenDough: cartPizza.pizza.choosenDough, choosenSize: cartPizza.pizza.choosenSize, choosenToppings: cartPizza.pizza.choosenToppings } }) ?? [])} />
         </DialogTrigger>
-        <DialogContent className="relative flex h-full max-w-[100vw] flex-col gap-0 bg-background p-0">
+        <DialogContent className="relative flex h-full max-w-[100vw] flex-col gap-0 bg-background border-none p-0">
           <VisuallyHidden>
             <DialogTitle>Create Order</DialogTitle>
           </VisuallyHidden>

@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/src/shared/context'
 import localFont from 'next/font/local'
 import { cookies } from 'next/headers'
 import { Footer } from './(components)/Footer/Footer'
@@ -21,11 +22,18 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   const user = userRaw ? JSON.parse(userRaw) as User : undefined
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${interSans.variable} antialiased`}>
-        <Providers defaultLocale={locale} defaultUser={user}>
-          {children}
-        </Providers>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Providers defaultLocale={locale} defaultUser={user}>
+            {children}
+          </Providers>
+        </ThemeProvider>
         <Footer locale={locale} user={user} />
       </body>
     </html>

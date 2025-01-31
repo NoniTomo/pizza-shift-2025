@@ -20,7 +20,7 @@ export function PaymentCardForm() {
             className="flex max-w-[600px] flex-col gap-5"
             onSubmit={state.form.handleSubmit(functions.onSubmit)}
           >
-            <div className="rounded-3xl bg-text-light p-8">
+            <div className="rounded-3xl bg-secondary p-8 flex flex-col gap-3">
               <TextField
                 id="pan"
                 register={state.form.register('pan', ['9999 9999'], {

@@ -50,6 +50,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
   const { t } = useLocale()
   const { add, remove } = useCartPizzaStorage()
   const { state, functions } = usePizzaCardModal({ pizza })
+
   return (
     <div className={className}>
       <Dialog open={state.modal} onOpenChange={functions.setModal}>
@@ -67,7 +68,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
               alt={t('buttonBack')}
             />
           )}
-          className="relative max-w-full p-0 sm:max-w-max"
+          className="relative max-w-full p-0 sm:max-w-max border-none"
         >
           <HeaderClient className="display h-min p-0 sm:hidden">
             <Button
@@ -88,7 +89,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
           <DialogTitle className="hidden sm:block">
             <DialogClose></DialogClose>
           </DialogTitle>
-          <Main className="grid font-inter  auto-cols-min grid-cols-1 gap-4 sm:grid-cols-2 lg:max-w-[800px]">
+          <Main className="grid font-inter auto-cols-min grid-cols-1 gap-4 sm:grid-cols-2 lg:max-w-[800px]">
             <Image
               priority
               className="mx-auto"
@@ -102,7 +103,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
               <PizzaInfo pizza={{ doughs: state.doughs, name: pizza.name, size: state.size, toppings: state.toppings }} />
               <div className="h-max">
                 <Tabs value={state.size.name} onValueChange={functions.handleSize}>
-                  <TabsList className="h-max rounded-2xl bg-text-light w-full">
+                  <TabsList className="h-max rounded-2xl bg-secondary w-full">
                     {SIZES.map(size => (
                       <TabsTrigger
                         key={size}
@@ -116,7 +117,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
                 </Tabs>
               </div>
               <Tabs value={state.doughs.name} onValueChange={functions.handleDoughs}>
-                <TabsList className="h-max rounded-2xl bg-text-light w-full">
+                <TabsList className="h-max rounded-2xl bg-secondary w-full">
                   {DOUGHS.map(dough => (
                     <TabsTrigger
                       key={dough}
@@ -138,7 +139,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
                 >
                   {pizza.toppings.map((topping: PizzaIngredient) => (
                     <ToggleGroupItem
-                      className="flex relative h-full w-full flex-col p-2 bg-background justify-between rounded-2xl border-background shadow-xl border-solid border-2 data-[state=on]:border-primary"
+                      className="flex relative h-full w-full flex-col p-2 bg-background justify-between rounded-2xl border-background shadow-sm data-[state=on]:shadow-2xl border-solid border-2 shadow-secondary-secondary-dark  data-[state=on]:shadow-secondary data-[state=on]:border-primary"
                       key={topping.name}
                       value={topping.name}
                     >
@@ -172,7 +173,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
               </div>
             </div>
             <Button
-              className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light sm:col-start-2"
+              className="h-max w-full rounded-2xl bg-primary hover:bg-primary-dark py-4 text-base text-primary-foreground sm:col-start-2"
               onClick={() => {
                 if (type === 'add') {
                   add({ ...pizza, choosenDough: state.doughs, choosenSize: state.size, choosenToppings: state.toppings })

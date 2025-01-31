@@ -17,17 +17,17 @@ export function OrderCard({ order, variant, children }: OrderCardProps) {
 
   return (
     <>
-      <Card className={`w-full py-4 cursor-pointer px-1 ${variant === 'history' ? 'border-none shadow-none' : 'rounded-3xl border-2 border-solid shadow-sm'}`}>
-        <CardContent className="flex flex-col gap-3">
+      <Card className={`w-full py-4 cursor-pointer px-1 ${variant === 'history' ? 'border-none shadow-none' : 'rounded-3xl border-2 border-solid border-secondary shadow-sm'}`}>
+        <CardContent className="flex flex-col gap-3 px-4 py-0">
           <div>
-            <p className="text-sm text-gray-400">{t('viewOrderStatus')}</p>
+            <p className="text-sm text-secondary-secondary-2">{t('viewOrderStatus')}</p>
             <div className="flex items-center gap-3">
               <div className={`h-3 w-3 rounded-full ${order.status === 3 && 'bg-green-500'} ${order.status < 3 && 'bg-yellow-500'} ${order.status === 4 && 'bg-red-500'}`}></div>
               <div>{t(`orderStatus${order.status}`)}</div>
             </div>
           </div>
           <div className="flex flex-col gap-1">
-            <p className="text-sm text-gray-400">{t('viewOrderAddress')}</p>
+            <p className="text-sm text-secondary-secondary-2">{t('viewOrderAddress')}</p>
             <p className="text-base">
               {order.receiverAddress?.street}
               ,
@@ -37,14 +37,13 @@ export function OrderCard({ order, variant, children }: OrderCardProps) {
             </p>
           </div>
           <div className="flex w-full flex-col gap-1">
-            <p className="text-sm text-gray-400">{t('viewOrderInOrder')}</p>
+            <p className="text-sm text-secondary-secondary-2">{t('viewOrderInOrder')}</p>
             {order.pizzas.map(
               (pizza, index) =>
                 (
                   <span key={index} className="flex gap-1">
                     {`${index + 1}.`}
                     <PizzaInfo
-                      className="text-text"
                       pizza={{
                         doughs: pizza.doughs,
                         size: pizza.size,
@@ -57,7 +56,7 @@ export function OrderCard({ order, variant, children }: OrderCardProps) {
             )}
           </div>
           <div className="flex flex-col gap-1">
-            <p className="text-sm text-gray-400">{t('viewOrderOrderAmount')}</p>
+            <p className="text-sm text-secondary-secondary-2">{t('viewOrderOrderAmount')}</p>
             <p className="text-base">
               {getTotalPrice(order.pizzas.map((pizza) => { return { count: 1, choosenDough: pizza.doughs, choosenSize: pizza.size, choosenToppings: pizza.toppings } }))}
               ₽

@@ -28,7 +28,7 @@ export function NavButton({ iconSrc, href, content, alt, type, className }: NavB
             alt={alt}
             className={isActive ? 'primary-filter' : ''}
           />
-          {!!content && <span className={isActive ? 'text-primary' : 'text-text'}>{content}</span>}
+          {!!content && <span className={isActive ? 'text-primary' : 'text-secondary-2'}>{content}</span>}
         </>
       )}
     </NavLink>

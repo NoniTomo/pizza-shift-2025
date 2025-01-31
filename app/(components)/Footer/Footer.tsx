@@ -17,7 +17,7 @@ export interface FooterProps {
 export async function Footer({ locale, user }: FooterProps) {
   const dict = getDictionary(locale)
   return (
-    <footer className="bottom-secondary fixed bottom-0 left-0 right-0 z-10 flex items-center justify-between border-t-2 bg-background px-5 py-2 text-secondary sm:hidden">
+    <footer className="border-t-secondary fixed bg-background bottom-0 left-0 right-0 z-10 flex items-center justify-between border-t-2 px-5 py-2 text-secondary-secondary-2 sm:hidden">
       { user && (
         <>
           <NavButton content={dict.pizza} alt={dict.pizza} href={ROUTES.PIZZA} iconSrc={PizzaIcon} type="column" />

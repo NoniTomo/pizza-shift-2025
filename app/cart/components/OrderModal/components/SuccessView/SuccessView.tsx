@@ -42,6 +42,9 @@ export function SuccessView() {
                         className="text-text"
                         pizza={{ doughs: pizza.pizza.choosenDough, name: pizza.pizza.name, size: pizza.pizza.choosenSize, toppings: pizza.pizza.choosenToppings }}
                       />
+                      {' '}
+                      X
+                      {pizza.count}
                     </span>
                   ),
               )}

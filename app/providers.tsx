@@ -15,8 +15,10 @@ export interface ProvidersProps {
 
 export function Providers({ children, defaultLocale, defaultUser }: ProvidersProps) {
   return (
+
     <I18nProvider defaultLocale={defaultLocale}>
       <QueryClientProvider client={queryClient}>
+
         <UserProvider defaultUser={defaultUser}>
           {children}
         </UserProvider>

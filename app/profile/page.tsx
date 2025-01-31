@@ -1,4 +1,3 @@
-// import { AuthCheck } from '@/src/components'
 import { getDictionary } from '@/src/shared/helpers'
 import { cookies } from 'next/headers'
 import { Header, Main } from '../(components)'

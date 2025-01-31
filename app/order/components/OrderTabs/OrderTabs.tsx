@@ -26,7 +26,7 @@ export function OrderTabs() {
   return (
     <div className="h-max">
       <Tabs value={activeTab} onValueChange={handleTabClick}>
-        <TabsList className="h-max rounded-2xl bg-text-light w-full">
+        <TabsList className="h-max rounded-2xl bg-secondary w-full">
           {TABS_ORDERS.map(tab => (
             <TabsTrigger
               key={tab}

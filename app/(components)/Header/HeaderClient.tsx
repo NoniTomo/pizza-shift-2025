@@ -24,9 +24,9 @@ export function HeaderClient({ children, className }: HeaderProps) {
   return (
     <>
       <header
-        className={`h-min w-full bottom-secondary sticky left-0 right-0 top-0 z-10 hidden justify-center border-b-2 bg-white sm:flex ${className}`}
+        className={`h-min w-full bg-background  border-b-secondary sticky left-0 right-0 top-0 z-10 hidden justify-center border-b-2 sm:flex ${className}`}
       >
-        <div className="flex w-full justify-between p-4 text-secondary sm:w-[600px] md:w-[700px] lg:w-[900px] xl:w-[1000px] 2xl:w-[1200px]">
+        <div className="flex w-full justify-between p-4 text-secondary-secondary-2 sm:w-[600px] md:w-[700px] lg:w-[900px] xl:w-[1000px] 2xl:w-[1200px]">
           <div className="flex gap-10">
             <Link href={ROUTES.PIZZA} className="flex gap-3 cursor-pointer">
               <h1 className="flex flex-col justify-start font-logo font-semibold uppercase">
@@ -82,8 +82,8 @@ export function HeaderClient({ children, className }: HeaderProps) {
         </div>
       </header>
 
-      <header className="bottom-secondary {className} sticky left-0 right-0 top-0 z-10 flex w-full justify-center border-b-2 bg-white sm:hidden">
-        <div className="flex w-full justify-start gap-4 p-4 font-inter text-3xl font-bold text-text">
+      <header className="sticky left-0 right-0 bg-background  top-0 z-10 flex w-full justify-center border-none sm:hidden">
+        <div className="flex w-full justify-start gap-4 p-4 font-inter text-3xl font-bold">
           {children}
         </div>
       </header>

@@ -25,17 +25,12 @@ export function usePaymentCardForm() {
     const address = orderContext.value?.receiverAddress
 
     if (person && address) {
+      const pizzas = orderContext.value?.cartPizzas?.flatMap(cartPizza =>
+        Array.from({ length: cartPizza.count }, () => ({ doughs: cartPizza.pizza.choosenDough, id: cartPizza.pizza.id, name: cartPizza.pizza.name, size: cartPizza.pizza.choosenSize, toppings: cartPizza.pizza.choosenToppings })),
+      ) || []
       const response = await postPizzaPaymentMutation.mutateAsync({
         params: {
-          pizzas: orderContext.value?.cartPizzas?.map((cartPizza) => {
-            return {
-              doughs: cartPizza.pizza.choosenDough,
-              id: cartPizza.pizza.id,
-              name: cartPizza.pizza.name,
-              size: cartPizza.pizza.choosenSize,
-              toppings: cartPizza.pizza.choosenToppings,
-            }
-          }),
+          pizzas,
           debitCard: data,
           person: { firstname: person.firstname, lastname: person.lastname, middlename: person.middlename, phone: person.phone },
           receiverAddress: { apartment: address.apartment, comment: address.comment, house: address.house, street: address.street },
