@@ -1,3 +1,3 @@
 export * from './dictionary'
-export * from './isSSR'
+export * from './getTotalPrice'
 export * from './validate'

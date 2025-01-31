@@ -1,5 +1,5 @@
-interface PageParams {
-  params: Promise<{ lang: 'en' | 'ru' }>
+interface OrderPageParams {
+  params: Promise<{ id: string }>
 }
 
 type Locale = 'en' | 'ru'
@@ -11,9 +11,18 @@ PageParams
 
 interface CartPizza {
   count: number
-  pizza: OrderedPizza & {
-    imgSrc: string
-    description: string
+  pizza: {
+    id: string
+    name: string
+    img: string
+    sizes: PizzaSize[]
+    dough: PizzaDough[]
+    toppings: PizzaIngredient[]
+    choosenDough: PizzaDough
+    choosenSize: PizzaSize
+    choosenToppings: PizzaIngredient[]
     price: number
   }
 }
+
+type OrdersTabs = 'active' | 'history'

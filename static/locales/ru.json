@@ -7,9 +7,12 @@
 
   "costPizza": "от {cost} ₽",
   "orderCost": "Стоимость заказа: {cost}",
-  "leaveModalQuestion": "Вы точно хотите выйти?",
   "seasonToTaste": "Добавить по вкусу",
   "cartEmpty": "Корзина пуста",
+  "userIsNotOrders": "Сделайте свой первый заказ!",
+
+  "leaveModalQuestion": "Вы точно хотите выйти?",
+  "cancelOrderModalQuestion": "Отменить заказ?",
 
   "formRuleRequired": "Это поле обязательное",
   "formRuleMaxLength": "Максимум {length} символов",
@@ -24,10 +27,15 @@
   "buttonToTheMain": "На главную",
   "buttonLeave": "Выйти",
   "buttonUpdateData": "Обновить данные",
+  "buttonNotCancel": "Не отменять",
   "buttonCancel": "Отменить",
   "buttonAddToCart": "Добавить в корзину",
   "buttonGetOtp": "Запросить код ещё раз",
   "buttonLogIn": "Войти",
+  "buttonCancelTheOrder": "Отменить заказ",
+  "buttonReorder": "Повторить заказ",
+  "buttonMoreDetails": "Подробнее",
+  "buttonToPizzas": "К пиццам!",
 
   "viewSuccesName": "Оплата прошла успешно!",
   "viewSuccesOrder": "Заказ",
@@ -35,6 +43,10 @@
   "viewSuccesOrderAmount": "Сумма заказа",
   "viewSuccesInfoSMS": "Вся информация была продублирована в SMS",
   "viewSuccesOrderPersonalAccount": "Перейти в личный кабинет",
+  "viewOrderStatus": "Статус",
+  "viewOrderAddress": "Адрес доставки",
+  "viewOrderOrderAmount": "Сумма заказа",
+  "viewOrderInOrder": "Состав заказа",
 
   "formAuthPhoneDescription": "Введите номер телефона для входа в личный кабинет",
   "formAuthPhonePlaceholder": "89999999999",
@@ -84,5 +96,14 @@
   "CHILE": "Чили",
   "SHRIMPS": "Креветки",
   "CHICKEN_FILLET": "Куриное филе",
-  "MEATBALLS": "Фрикадельки"
+  "MEATBALLS": "Фрикадельки",
+
+  "active": "Активные",
+  "history": "История",
+
+  "orderStatus0": "Заказ оформлен",
+  "orderStatus1": "Заказ готовится",
+  "orderStatus2": "Заказ у курьера",
+  "orderStatus3": "Заказ доставлен",
+  "orderStatus4": "Заказ отменен"
 }

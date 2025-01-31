@@ -1,11 +1,8 @@
 import axios from 'axios'
-import { isSSR } from '../helpers'
-
-// eslint-disable-next-line ts/no-require-imports, unicorn/prefer-node-protocol
-const baseUrl = isSSR ? require('process').env.NEXT_PUBLIC_API_URL : 'https://shift-intensive.ru/api'
+import { API_URL } from '../constants'
 
 export const instance = axios.create({
-  baseURL: baseUrl,
+  baseURL: API_URL,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',

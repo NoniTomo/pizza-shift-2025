@@ -12,7 +12,7 @@ export type NavLinkProps = {
 
 export function NavLink({ children, href, className, ...props }: NavLinkProps) {
   const pathname = usePathname()
-  const isActive = pathname.endsWith(href)
+  const isActive = (href !== '/' && pathname.endsWith(href)) || (href === '/' && pathname === '/')
 
   const renderChildren = () => {
     if (typeof children === 'function') {
@@ -22,7 +22,7 @@ export function NavLink({ children, href, className, ...props }: NavLinkProps) {
   }
 
   return (
-    <Link href={href} className={className} {...props}>
+    <Link scroll={false} href={href} className={className} {...props}>
       {renderChildren()}
     </Link>
   )

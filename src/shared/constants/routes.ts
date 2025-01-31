@@ -1,7 +1,14 @@
 export const ROUTES = {
-  PROFILE: (lang: Locale) => `/${lang}/profile`,
-  ORDER: (lang: Locale) => `/${lang}/order`,
-  CART: (lang: Locale) => `/${lang}/cart`,
-  AUTH: (lang: Locale) => `/${lang}/auth`,
-  PIZZA: (lang: Locale) => `/${lang}/pizza`,
+  PROFILE: '/profile',
+  ORDER: '/order',
+  ORDER_ID: (orderId: string) => `/order/${orderId}`,
+  CART: '/cart',
+  AUTH: '/auth',
+  PIZZA: '/',
 }
+
+const API_ROUTES = {
+  LOGOUT: '/logout',
+}
+
+export const PROTECTED_ROUTES = [ROUTES.PROFILE, ROUTES.ORDER, ROUTES.CART, API_ROUTES.LOGOUT]
