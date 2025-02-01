@@ -6,13 +6,13 @@ export interface OrderContextParams {
   value?: Partial<{
     cartPizzas: CartPizza[]
     receiverAddress: Address
-    person: Omit<User, 'email' | 'city'>
+    person: Omit<User, 'city'>
   }>
   set: (
     order: Partial<{
       cartPizzas: CartPizza[]
       receiverAddress: Address
-      person: Omit<User, 'email' | 'city'>
+      person: Omit<User, 'city'>
     }>
   ) => void
 }

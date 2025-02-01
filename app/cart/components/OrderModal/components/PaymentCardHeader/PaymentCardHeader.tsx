@@ -11,7 +11,7 @@ export function PaymentCardHeader() {
 
   return (
     <HeaderClient>
-      <Button className="border-none bg-background shadow-none" onClick={() => back()}>
+      <Button className="border-none bg-background hover:bg-background shadow-none" onClick={() => back()}>
         <Image
           className="hover:grey-dark-filter"
           priority

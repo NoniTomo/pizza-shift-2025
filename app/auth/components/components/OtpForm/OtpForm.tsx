@@ -34,7 +34,7 @@ export function OtpForm() {
           onKeyDown={filterInputOnlyNumbers}
           onPaste={filterInputOnlyNumbers}
         />
-        <Button type="submit" className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light">{t('buttonLogIn')}</Button>
+        <Button type="submit" className="h-max w-full rounded-2xl bg-primary py-4 hover:bg-secondary-primary-dark text-primary-foreground">{t('buttonLogIn')}</Button>
       </form>
       {!!state.isEnding && (
         <Button
@@ -46,7 +46,7 @@ export function OtpForm() {
       )}
       {!state.isEnding && (
         <p
-          className="font-inter text-sm text-secondary"
+          className="font-inter text-sm text-secondary-secondary-2"
         >
           {t('formAuthOtpsDelayMessage', { seconds: String(state.seconds) })}
         </p>

@@ -4,16 +4,25 @@ import { Button, TextField } from '@/src/shared/components'
 import { filterInputOnlyNumbers } from '@/src/shared/helpers'
 import { useLocale } from '@/src/shared/hooks'
 import { useStage } from '../../context/StageContext'
+import { StageLine } from '../StageLine/StageLine'
 import { usePaymentCardForm } from './hooks/usePaymentCardForm'
 
 export function PaymentCardForm() {
-  const { back } = useStage()
+  const { back, numberCurrentStage } = useStage()
   const { t } = useLocale()
 
   const { state, functions } = usePaymentCardForm()
   return (
     <>
-      <Main>
+      <Main className="flex flex-col gap-3">
+        <h1>
+          <span>
+            {t('stage')}
+            {' '}
+          </span>
+          {numberCurrentStage}
+        </h1>
+        <StageLine className="w-1/2" />
         <h1 className="hidden pb-5 text-xl font-bold sm:block">{t('formPaymentLongName')}</h1>
         <div className="flex flex-col gap-5">
           <form
@@ -64,13 +73,13 @@ export function PaymentCardForm() {
             </div>
             <div className="flex gap-3">
               <Button
-                className="text-text-dark hidden h-max w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none sm:flex"
+                className="text-text-dark hidden h-max w-full rounded-2xl border-2 border-solid border-text-light py-4 text-base shadow-none sm:flex bg-background hover:bg-secondary"
                 onClick={() => back()}
               >
                 {t('buttonBack')}
               </Button>
               <Button
-                className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light"
+                className="h-max w-full rounded-2xl bg-primary py-4 text-base text-primary-foreground hover:bg-secondary-primary-dark"
                 type="submit"
                 disabled={state.isLoading}
               >

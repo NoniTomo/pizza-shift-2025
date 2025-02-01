@@ -60,6 +60,7 @@ const config = {
           // Цвета для состояний (ошибки, предупреждения, успех)
           'destructive': {
             DEFAULT: 'hsl(var(--destructive))',
+            light: 'var(--destructive)',
             foreground: 'hsl(var(--destructive-foreground))',
           },
           'success': {

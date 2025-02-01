@@ -9,7 +9,7 @@ export interface OrderProviderProps {
   defaultOrder?: Partial<{
     cartPizzas: CartPizza[]
     receiverAddress: Address
-    person: Omit<User, 'email' | 'city'>
+    person: Omit<User, 'city'>
   }>
 }
 

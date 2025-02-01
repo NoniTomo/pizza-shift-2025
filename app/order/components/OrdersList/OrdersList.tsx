@@ -26,7 +26,7 @@ export function OrdersList() {
             {state.displayMobileMessage
             && (
               <MobileCancelModal
-                closeHandler={() => functions.setDisplayMobileMessage(false)}
+                closeHandler={() => functions.closeDisplayMobileMessage()}
                 order={order}
               />
             )}
@@ -44,7 +44,7 @@ export function OrdersList() {
                 open={state.open}
                 setOpen={functions.setOpen}
               >
-                <Button className="h-max w-full rounded-2xl bg-primary py-4 sm:col-start-2">
+                <Button disabled={!!((order.status === 2 || order.status === 1))} className={`h-max w-full rounded-2xl text-lg bg-primary py-4 sm:col-start-2 text-primary-foreground hover:bg-secondary-primary-dark ${(order.status === 2 || order.status === 1) && 'hidden'}`}>
                   {t('buttonCancelTheOrder')}
                 </Button>
               </ModalCancel>
@@ -55,7 +55,7 @@ export function OrdersList() {
         && (
           <div className="flex flex-col gap-3">
             <h3 className="font-inter text-xl font-bold ">{t('userIsNotOrders')}</h3>
-            <Link href={ROUTES.PIZZA} className="h-max text-center bg-primary w-max px-10 rounded-2xl py-4 sm:col-start-2">
+            <Link href={ROUTES.PIZZA} className="h-max text-center bg-primary w-max px-10 rounded-2xl py-4 sm:col-start-2 text-primary-foreground hover:bg-secondary-primary-dark">
               {t('buttonToPizzas')}
             </Link>
           </div>
@@ -89,7 +89,7 @@ export function OrdersList() {
             {state.isNotHistoryOrder && (
               <div className="flex flex-col gap-3">
                 <h3 className="font-inter text-xl font-bold ">{t('userIsNotOrders')}</h3>
-                <Link href={ROUTES.PIZZA} className="h-max text-center w-max px-10 rounded-2xl bg-primary py-4 text-base -light sm:col-start-2">
+                <Link href={ROUTES.PIZZA} className="h-max text-center bg-primary w-max px-10 rounded-2xl py-4 sm:col-start-2 text-primary-foreground hover:bg-secondary-primary-dark">
                   {t('buttonToPizzas')}
                 </Link>
               </div>

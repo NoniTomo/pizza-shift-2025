@@ -1,16 +1,12 @@
 import { useGetPizzaOrdersQuery } from '@/src/shared/api/hooks/useGetPizzaOrdersQuery'
 import { usePutPizzaOrdersCancelMutation } from '@/src/shared/api/hooks/usePutPizzaOrdersCancelMutation'
 import { useMediaQuery } from '@siberiacancode/reactuse'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import React from 'react'
-
-const HISTORY_TAB: OrdersTabs = 'history'
 
 export function useOrdersList() {
   const searchParams = useSearchParams()
   const isMobile = useMediaQuery('(max-width: 640px)')
-  const router = useRouter()
-  const pathname = usePathname()
 
   const activeTab = searchParams.get('tab') as OrdersTabs
   const [orders, setOrders] = React.useState<PizzaOrder[]>([])
@@ -27,8 +23,13 @@ export function useOrdersList() {
     })
     if (isMobile)
       setDisplayMobileMessage(true)
+    else await getPizzaOrdersQuery.refetch()
     setOpen(false)
-    router.replace(`${pathname}?tab=${HISTORY_TAB}`)
+  }
+
+  const closeDisplayMobileMessage = async () => {
+    setDisplayMobileMessage(false)
+    await getPizzaOrdersQuery.refetch()
   }
 
   const historyOrdersList = orders.filter(order => order.status === 4 || order.status === 3) ?? []
@@ -37,7 +38,7 @@ export function useOrdersList() {
   React.useEffect(() => {
     if (getPizzaOrdersQuery.data?.data)
       setOrders(getPizzaOrdersQuery.data?.data.orders)
-  }, [putPizzaOrdersCancelMutation.isSuccess, getPizzaOrdersQuery.data?.data])
+  }, [getPizzaOrdersQuery.data?.data])
 
   return {
     state: {
@@ -50,6 +51,6 @@ export function useOrdersList() {
       isNotActiveOrder: !getPizzaOrdersQuery.isPending && activeOrdersList.length === 0,
       isNotHistoryOrder: !getPizzaOrdersQuery.isPending && historyOrdersList.length === 0,
     },
-    functions: { handleCancelOrder, setOrders, setDisplayMobileMessage, setOpen },
+    functions: { handleCancelOrder, setOrders, setDisplayMobileMessage, setOpen, closeDisplayMobileMessage },
   }
 }

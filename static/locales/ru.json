@@ -110,5 +110,7 @@
   "orderStatus1": "Заказ готовится",
   "orderStatus2": "Заказ у курьера",
   "orderStatus3": "Заказ доставлен",
-  "orderStatus4": "Заказ отменен"
+  "orderStatus4": "Заказ отменен",
+
+  "stage": "Этап"
 }

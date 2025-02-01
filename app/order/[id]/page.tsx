@@ -49,7 +49,7 @@ export default async function OrderId({ params }: RootLayoutProps) {
       <Main className="mb-20 sm:mb-0 flex flex-col gap-5">
         <Link
           href={ROUTES.ORDER}
-          className="hidden gap-4 sm:flex font-inter text-xl text-secondary items-center hover:grey-dark-filter"
+          className="hidden gap-4 sm:flex font-inter text-xl text-secondary-secondary-2 w-min items-center hover:grey-dark-filter"
         >
           <Image
             priority
@@ -66,7 +66,7 @@ export default async function OrderId({ params }: RootLayoutProps) {
             <div className="flex gap-3">
               <Link
                 href={ROUTES.ORDER}
-                className="text-text-dark text-center h-min w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none"
+                className="text-text-dark text-center h-min w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none hover:bg-secondary"
               >
                 {dict.buttonBack}
               </Link>

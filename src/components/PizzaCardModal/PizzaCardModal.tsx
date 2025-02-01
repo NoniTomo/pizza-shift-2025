@@ -33,6 +33,7 @@ export interface PizzaCardModalProps {
     id: string
     name: string
     img: string
+    ingredients?: PizzaIngredient[]
     sizes: PizzaSize[]
     dough: PizzaDough[]
     toppings: PizzaIngredient[]
@@ -72,7 +73,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
         >
           <HeaderClient className="display h-min p-0 sm:hidden">
             <Button
-              className="border-none bg-background shadow-none"
+              className="border-none bg-background shadow-none hover:bg-background"
               onClick={() => functions.setModal(false)}
             >
               <Image
@@ -100,6 +101,15 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
             />
             <div className="scrollbar flex flex-col gap-4 overflow-y-scroll sm:h-[500px]">
               <h1 className=" text-3xl font-bold text-text">{pizza.name}</h1>
+              <p>
+
+                {pizza?.ingredients && pizza.ingredients.map((topping, index) => (
+                  <span key={index}>
+                    {index > 0 && ', '}
+                    {t(topping.name)}
+                  </span>
+                ))}
+              </p>
               <PizzaInfo pizza={{ doughs: state.doughs, name: pizza.name, size: state.size, toppings: state.toppings }} />
               <div className="h-max">
                 <Tabs value={state.size.name} onValueChange={functions.handleSize}>
@@ -130,7 +140,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
                 </TabsList>
               </Tabs>
               <div>
-                <h3>{t('seasonToTaste')}</h3>
+                <h3 className="text-lg">{t('seasonToTaste')}</h3>
                 <ToggleGroup
                   value={state.toppings.map(topping => topping.name)}
                   onValueChange={functions.handleValueChange}
@@ -173,7 +183,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
               </div>
             </div>
             <Button
-              className="h-max w-full rounded-2xl bg-primary hover:bg-primary-dark py-4 text-base text-primary-foreground sm:col-start-2"
+              className="h-max w-full rounded-2xl py-4 text-base sm:col-start-2 bg-primary text-primary-foreground hover:bg-secondary-primary-dark"
               onClick={() => {
                 if (type === 'add') {
                   add({ ...pizza, choosenDough: state.doughs, choosenSize: state.size, choosenToppings: state.toppings })

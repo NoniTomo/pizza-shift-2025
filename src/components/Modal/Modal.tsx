@@ -54,7 +54,7 @@ export function ModalCancel({
             alt={t('buttonBack')}
           />
         )}
-        className="flex flex-col  max-w-screen sm:max-w-lg bg-background p-5 sm:p-10 fixed bottom-0 left-0 right-0 rounded-t-3xl sm:rounded-3xl sm:relative "
+        className="flex flex-col border-none max-w-screen sm:max-w-lg bg-background p-5 sm:p-10 fixed bottom-0 left-0 right-0 rounded-t-3xl sm:rounded-3xl sm:relative "
       >
         <DialogTitle>
           <DialogClose />
@@ -68,13 +68,13 @@ export function ModalCancel({
             <div className="flex w-full flex-col gap-2 sm:flex-row">
               <Button
                 onClick={buttonTop.action}
-                className="text-text-dark flex h-min w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none"
+                className="flex h-min w-full rounded-2xl border-2 border-solid border-text-light py-4 text-base shadow-none bg-background hover:bg-secondary text-foreground"
               >
                 {buttonTop.text}
               </Button>
               <Button
                 onClick={buttonBottom.action}
-                className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light"
+                className="h-max w-full rounded-2xl py-4 text-base bg-primary text-primary-foreground hover:bg-secondary-primary-dark"
               >
                 {buttonBottom.text}
               </Button>

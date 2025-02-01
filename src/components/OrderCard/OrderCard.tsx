@@ -12,8 +12,30 @@ export interface OrderCardProps {
   children: React.ReactNode
 }
 
+function createGroupKey(pizza: OrderedPizza): string {
+  return `${pizza.id}-${pizza.name}-${pizza.size}-${pizza.doughs}-${pizza.toppings.join(',')}`
+}
+
+// Группировка заказов
+
 export function OrderCard({ order, variant, children }: OrderCardProps) {
   const { t } = useLocale()
+
+  const groupedOrders = order.pizzas.reduce((acc, pizza) => {
+    const key = createGroupKey(pizza)
+
+    if (!acc[key]) {
+      acc[key] = {
+        pizza,
+        count: 1, // Добавляем поле quantity для подсчета количества
+      }
+    }
+    else {
+      acc[key].count += 1 // Увеличиваем количество, если такая пицца уже есть
+    }
+
+    return acc
+  }, {} as Record<string, { pizza: OrderedPizza, count: number }>)
 
   return (
     <>
@@ -38,25 +60,33 @@ export function OrderCard({ order, variant, children }: OrderCardProps) {
           </div>
           <div className="flex w-full flex-col gap-1">
             <p className="text-sm text-secondary-secondary-2">{t('viewOrderInOrder')}</p>
-            {order.pizzas.map(
-              (pizza, index) =>
+            {Object.keys(groupedOrders).map(
+              (key, index) =>
                 (
-                  <span key={index} className="flex gap-1">
-                    {`${index + 1}.`}
-                    <PizzaInfo
-                      pizza={{
-                        doughs: pizza.doughs,
-                        size: pizza.size,
-                        toppings: pizza.toppings,
-                        name: pizza.name,
-                      }}
-                    />
-                  </span>
+                  <p key={key}>
+                    <span>
+                      {`${index + 1}.`}
+                      <PizzaInfo
+                        className="text-foreground"
+                        pizza={{
+                          doughs: groupedOrders[key].pizza.doughs,
+                          size: groupedOrders[key].pizza.size,
+                          toppings: groupedOrders[key].pizza.toppings,
+                          name: groupedOrders[key].pizza.name,
+                        }}
+                      />
+                    </span>
+                    <span>
+                      {' '}
+                      x
+                      {groupedOrders[key].count}
+                    </span>
+                  </p>
                 ),
             )}
           </div>
           <div className="flex flex-col gap-1">
-            <p className="text-sm text-secondary-secondary-2">{t('viewOrderOrderAmount')}</p>
+            <p className="text-sm text-secondary-secondary-2 ">{t('viewOrderOrderAmount')}</p>
             <p className="text-base">
               {getTotalPrice(order.pizzas.map((pizza) => { return { count: 1, choosenDough: pizza.doughs, choosenSize: pizza.size, choosenToppings: pizza.toppings } }))}
               ₽

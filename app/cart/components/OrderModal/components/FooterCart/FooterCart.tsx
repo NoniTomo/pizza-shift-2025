@@ -21,7 +21,7 @@ export function FooterCart({ cost }: FooterCartProps) {
         <p className="text-lg font-semibold">{t('orderCost', { cost: String(cost) })}</p>
         <Button
           onClick={onClick}
-          className="h-max rounded-xl bg-primary px-16 py-4 text-lg text-text-light hover:bg-primary-dark"
+          className="h-max rounded-xl bg-primary px-16 py-4 text-lg hover:bg-secondary-primary-dark text-primary-foreground"
         >
           {t('buttonPlaceAnOrder')}
         </Button>
@@ -34,7 +34,7 @@ export function FooterCart({ cost }: FooterCartProps) {
       <p className="text-lg font-extralight">{t('orderCost', { cost: String(cost) })}</p>
       <Button
         onClick={onClick}
-        className="h-max rounded-xl bg-primary px-8 py-4 text-lg text-text-light hover:bg-primary-dark"
+        className="h-max rounded-xl bg-primary px-8 py-4 text-lg hover:bg-secondary-primary-dark text-primary-foreground"
       >
         {t('buttonPlaceAnOrder')}
       </Button>

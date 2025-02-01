@@ -1,4 +1,4 @@
-export const DEFAULT_SIZES_LIST = [
+export const DEFAULT_SIZES_LIST: PizzaSize[] = [
   {
     name: 'SMALL',
     price: 499,
