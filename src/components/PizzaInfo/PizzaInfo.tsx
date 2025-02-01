@@ -1,3 +1,4 @@
+import { SIZES } from '@/src/shared/constants'
 import { useLocale } from '@/src/shared/hooks'
 
 export interface PizzaInfoProps {
@@ -17,9 +18,9 @@ export function PizzaInfo({
 }: PizzaInfoProps) {
   const { t } = useLocale()
   return (
-    <span className={`text-secondary-secondary-2 ${className}`} {...props}>
+    <span className={`dark:text-secondary-secondary-2 ${className}`} {...props}>
       <span>
-        {`${pizza.name}, ${t(pizza.size.name)}, ${t(pizza.doughs.name)}`}
+        {`${pizza.name}, ${SIZES[pizza.size.name]}, ${t(pizza.doughs.name)}`}
       </span>
       {!!pizza.toppings?.length && <span> + </span>}
       {pizza.toppings?.map((topping, index) => (

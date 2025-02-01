@@ -142,8 +142,7 @@ body {
       brightness(98%) contrast(95%);
   }
   .grey-dark-filter {
-    filter: brightness(0) saturate(100%) invert(23%) sepia(22%) saturate(519%) hue-rotate(175deg)
-      brightness(102%) contrast(101%);
+    filter: brightness(0) saturate(100%) invert(14%) sepia(13%) saturate(1809%) hue-rotate(178deg) brightness(92%) contrast(92%);
   }
   .scrollbar::-webkit-scrollbar {
     display: none;

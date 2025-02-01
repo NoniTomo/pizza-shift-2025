@@ -49,7 +49,7 @@ export default async function OrderId({ params }: RootLayoutProps) {
       <Main className="mb-20 sm:mb-0 flex flex-col gap-5">
         <Link
           href={ROUTES.ORDER}
-          className="hidden gap-4 sm:flex font-inter text-xl text-secondary items-center hover:grey-dark-filter"
+          className="hidden gap-4 sm:flex font-inter text-xl text-secondary-secondary-2 w-min items-center hover:grey-dark-filter"
         >
           <Image
             priority

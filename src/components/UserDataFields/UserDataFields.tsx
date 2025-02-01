@@ -52,6 +52,7 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
       <TextField
         id="lastname"
         register={form.register('lastname', {
+          required: t('formRuleRequired'),
           maxLength: { value: 60, message: t('formRuleMaxLength', { length: String(60) }) },
           validate: value =>
             value.split('').length > 0 ? validateAlphabetAndSpecialSymbols(value) : true,
@@ -60,7 +61,7 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
         error={form.formState.errors.lastname?.message}
         label={t('formYourDataLastname')}
         isDisabled={false}
-        isRequired={false}
+        isRequired={true}
         onKeyDown={filterInputAlphabet}
         onPaste={filterInputAlphabet}
       />
@@ -91,6 +92,7 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
       <TextField
         id="city"
         register={form.register('city', {
+          required: t('formRuleRequired'),
           maxLength: { value: 100, message: t('formRuleMaxLength', { length: String(60) }) },
         })}
         placeholder={t('formYourDataCityPlaceholder')}

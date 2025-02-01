@@ -10,16 +10,16 @@ export function useUserDataForm() {
   const form = useForm({
     mode: 'onChange',
     defaultValues: {
-      firstname: userContext.value?.firstname ?? '',
-      middlename: userContext.value?.middlename ?? '',
-      lastname: userContext.value?.lastname ?? '',
-      phone: userContext.value?.phone ?? '',
-      email: userContext.value?.email ?? '',
+      firstname: userContext.value?.firstname || orderContext.value?.person?.firstname || '',
+      middlename: userContext.value?.middlename || orderContext.value?.person?.middlename || '',
+      lastname: userContext.value?.lastname || orderContext.value?.person?.lastname || '',
+      phone: userContext.value?.phone || orderContext.value?.person?.phone || '',
+      email: userContext.value?.email || orderContext.value?.person?.email || '',
       city: userContext.value?.city ?? '',
     },
   })
 
-  const onSubmit = (data: Omit<User, 'email'>) => {
+  const onSubmit = (data: User) => {
     const { city, ...person } = data
     orderContext.set({ ...(orderContext.value ?? {}), person, receiverAddress: { comment: city, apartment: city, house: city, street: city } })
     set('cardForm')

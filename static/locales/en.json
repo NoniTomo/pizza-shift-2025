@@ -110,5 +110,7 @@
   "orderStatus1": "Order in progress",
   "orderStatus2": "Courier order",
   "orderStatus3": "Order delivered",
-  "orderStatus4": "Order is canceled"
+  "orderStatus4": "Order is canceled",
+
+  "stage": "Stage"
 }

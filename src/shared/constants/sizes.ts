@@ -1,5 +1,5 @@
 export const SIZES = {
-  LARGE: '25 см',
-  SMALL: '30 см',
-  MEDIUM: '35 см',
+  SMALL: '25 см',
+  MEDIUM: '30 см',
+  LARGE: '35 см',
 }
