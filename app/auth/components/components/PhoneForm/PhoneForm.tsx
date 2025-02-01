@@ -26,7 +26,7 @@ export function PhoneForm() {
           onKeyDown={filterInputOnlyNumbers}
           onPaste={filterInputOnlyNumbers}
         />
-        <Button type="submit" className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light">{t('buttonNext')}</Button>
+        <Button type="submit" className="h-max w-full rounded-2xl bg-primary py-4 text-base hover:bg-secondary-primary-dark text-primary-foreground">{t('buttonNext')}</Button>
       </form>
     </>
   )

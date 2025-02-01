@@ -64,13 +64,13 @@ export function PaymentCardForm() {
             </div>
             <div className="flex gap-3">
               <Button
-                className="text-text-dark hidden h-max w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none sm:flex"
+                className="text-text-dark hidden h-max w-full rounded-2xl border-2 border-solid border-text-light py-4 text-base shadow-none sm:flex bg-background hover:bg-secondary"
                 onClick={() => back()}
               >
                 {t('buttonBack')}
               </Button>
               <Button
-                className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light"
+                className="h-max w-full rounded-2xl bg-primary py-4 text-base text-primary-foreground hover:bg-secondary-primary-dark"
                 type="submit"
                 disabled={state.isLoading}
               >

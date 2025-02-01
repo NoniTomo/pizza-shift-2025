@@ -31,6 +31,7 @@ export default async function Home() {
                       choosenDough: pizza.doughs[0],
                       choosenSize: pizza.sizes[0],
                       choosenToppings: [],
+                      ingredients: pizza.ingredients,
                       id: pizza.id,
                       img: pizza.img,
                       name: pizza.name,

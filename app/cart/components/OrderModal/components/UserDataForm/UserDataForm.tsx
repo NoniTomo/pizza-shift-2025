@@ -27,7 +27,7 @@ export function UserDataForm() {
           <Button
             form="userDataFormID"
             type="submit"
-            className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light"
+            className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light zbg-primary text-primary-foreground hover:bg-secondary-primary-dark"
           >
             {t('buttonNext')}
           </Button>

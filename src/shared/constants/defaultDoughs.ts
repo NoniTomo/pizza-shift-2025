@@ -1,4 +1,4 @@
-export const DEFAULT_DOUGHS_LIST = [
+export const DEFAULT_DOUGHS_LIST: PizzaDough[] = [
   {
     name: 'THIN',
     price: 0,

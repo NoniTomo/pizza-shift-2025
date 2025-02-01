@@ -1,4 +1,4 @@
-export const DEFAULT_TOPPINGS_LIST = [
+export const DEFAULT_TOPPINGS_LIST: PizzaIngredient[] = [
   {
     name: 'PINEAPPLE',
     cost: 80,

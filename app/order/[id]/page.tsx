@@ -66,7 +66,7 @@ export default async function OrderId({ params }: RootLayoutProps) {
             <div className="flex gap-3">
               <Link
                 href={ROUTES.ORDER}
-                className="text-text-dark text-center h-min w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none"
+                className="text-text-dark text-center h-min w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none hover:bg-secondary"
               >
                 {dict.buttonBack}
               </Link>

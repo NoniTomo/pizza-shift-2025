@@ -16,7 +16,7 @@ export function NavButton({ iconSrc, href, content, alt, type, className }: NavB
   return (
     <NavLink
       href={href}
-      className={`flex items-center justify-center font-inter text-lg ${type === 'column' ? 'flex-col ' : 'flex-row gap-3'} ${className}`}
+      className={`flex items-center justify-center font-inter text-lg p-1 rounded-md bg-background hover:bg-secondary ${type === 'column' ? 'flex-col ' : 'flex-row gap-3'} ${className}`}
     >
       {({ isActive }) => (
         <>

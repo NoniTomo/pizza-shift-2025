@@ -25,7 +25,7 @@ export function PizzaCard({ pizza, className = '' }: PizzaCardProps) {
     <Card className={`flex flex-col h-full justify-between gap-2 border-none shadow-none ${className}`}>
       <CardContent className="p-2 grid grid-cols-5 auto-cols-min rounded-xl hover:bg-secondary sm:p-0 sm:hover:bg-transparent sm:flex sm:flex-col items-center gap-2 font-inter">
         <Image className="w-auto h-auto col-span-2" priority src={`${API_URL}${pizza.img}`} alt={pizza.name} height={240} width={240} />
-        <div className="flex flex-col gap-2 col-span-3">
+        <div className="flex flex-col gap-2 col-span-3 w-full">
           <h3 className="text-balance text-left text-base sm:text-xl font-bold">{pizza.name}</h3>
           <p className="text-balance text-left text-sm sm:text-base">{pizza.description}</p>
           <span className=" block sm:hidden text-left text-base sm:text-xl font-bold">
@@ -53,7 +53,7 @@ export function PizzaCard({ pizza, className = '' }: PizzaCardProps) {
             price: pizza.sizes[0].price,
           }}
           triggerButton={(
-            <Button className="h-max w-full rounded-2xl bg-primary  py-4 text-base text-primary-foreground">
+            <Button className="h-max w-full rounded-2xl py-4 text-base bg-primary text-primary-foreground hover:bg-secondary-primary-dark">
               {t('buttonSelected')}
             </Button>
           )}

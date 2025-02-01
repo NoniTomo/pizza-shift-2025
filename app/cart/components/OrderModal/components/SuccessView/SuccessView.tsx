@@ -39,7 +39,7 @@ export function SuccessView() {
                     <span key={index} className="flex gap-1">
                       {`${index + 1}.`}
                       <PizzaInfo
-                        className="text-text"
+                        className="text-foreground"
                         pizza={{ doughs: pizza.pizza.choosenDough, name: pizza.pizza.name, size: pizza.pizza.choosenSize, toppings: pizza.pizza.choosenToppings }}
                       />
                       {' '}
@@ -72,12 +72,12 @@ export function SuccessView() {
         <div className="flex w-full flex-col gap-3 sm:flex-row">
           <Link
             href={ROUTES.ORDER}
-            className="text-text-dark h-max w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-center text-base shadow-none"
+            className="text-text-dark h-max w-full rounded-2xl border-2 border-solid border-text-light py-4 text-center text-base shadow-none bg-background hover:bg-secondary"
           >
             {t('buttonOrderDetails')}
           </Link>
           <Link
-            className="h-max w-full rounded-2xl bg-primary py-4 text-center text-base text-text-light"
+            className="h-max w-full rounded-2xl bg-primary py-4 text-center text-base text-text-light text-primary-foreground hover:bg-secondary-primary-dark"
             href={ROUTES.PIZZA}
           >
             {t('buttonToTheMain')}

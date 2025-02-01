@@ -10,7 +10,7 @@ export function UserDataHeader() {
   const { t } = useLocale()
   return (
     <HeaderClient>
-      <Button className="border-none bg-background shadow-none" onClick={() => setModalState(false)}>
+      <Button className="border-none bg-background hover:bg-background shadow-none" onClick={() => setModalState(false)}>
         <Image
           className="hover:grey-dark-filter"
           priority

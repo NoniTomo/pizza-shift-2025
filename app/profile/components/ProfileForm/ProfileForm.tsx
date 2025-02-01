@@ -37,7 +37,7 @@ export function ProfileForm() {
           >
             <Button
               onClick={() => functions.setOpenModal(true)}
-              className={`h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light ${state.openModal && 'hidden'}`}
+              className={`h-max w-full rounded-2xl bg-primary text-primary-foreground hover:bg-secondary-primary-dark py-4 text-base ${state.openModal && 'hidden'}`}
             >
               {t('buttonLeave')}
             </Button>
@@ -46,7 +46,7 @@ export function ProfileForm() {
             disabled={state.isLoading}
             form="userDataFormID"
             type="submit"
-            className="text-text-dark h-min w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none"
+            className="text-foreground h-min w-full rounded-2xl border-2 border-solid border-text-light bg-background hover:bg-secondary py-4 text-base shadow-none"
           >
             {t('buttonUpdateData')}
           </Button>

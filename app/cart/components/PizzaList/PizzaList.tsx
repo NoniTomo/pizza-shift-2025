@@ -56,7 +56,7 @@ export function PizzaList() {
                   <div className="col-span-2 m-auto bg-secondary w-full flex max-w-20 flex-nowrap overflow-hidden rounded-xl text-secondary-secondary-foreground md:col-span-1 md:row-span-3">
                     <Button
                       size="sm"
-                      className="w-1/3 rounded-none bg-secondary text-base shadow-none hover:bg-secondary-secondary-dark"
+                      className="w-1/3 rounded-none bg-secondary text-secondary-foreground text-base shadow-none hover:bg-secondary-secondary-2"
                       onClick={() =>
                         handleDelete({
                           choosenDough: cartPizza.pizza.choosenDough,
@@ -72,7 +72,7 @@ export function PizzaList() {
                     </div>
                     <Button
                       size="sm"
-                      className="w-1/3 rounded-none text-base bg-secondary shadow-none hover:bg-secondary-secondary-dark"
+                      className="w-1/3 rounded-none  text-secondary-foreground text-base bg-secondary shadow-none hover:bg-secondary-secondary-2"
                       onClick={() =>
                         handleAdd({
                           id: cartPizza.pizza.id,
@@ -98,7 +98,7 @@ export function PizzaList() {
                       <Button
                         size="sm"
                         variant="link"
-                        className="hover:text-text text-secondary-secondary-2"
+                        className="hover:text-secondary-secondary-dark text-secondary-secondary-2"
                       >
                         {t('buttonChanged')}
                       </Button>

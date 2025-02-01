@@ -12,7 +12,7 @@ export function SuccessViewHeader() {
     <HeaderClient>
       <div className="flex w-full justify-end">
         <Button
-          className="border-none bg-background shadow-none"
+          className="border-none bg-background hover:bg-background shadow-none"
           onClick={() => {
             set('userDataForm')
             setModalState(false)
