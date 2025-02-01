@@ -6,7 +6,7 @@ https://pizza-shift-2025-rust.vercel.app/
 First, run the development server:
 
 ```bash
-yarn run dev
+npm run dev
 # or
 yarn dev
 ```
