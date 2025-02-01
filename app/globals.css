@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: FiraSans;
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/FiraSans-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: FiraSans;
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/FiraSans-Bold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/Inter_24pt-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Inter_24pt-SemiBold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Inter_24pt-Bold.ttf') format('ttf');
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* @layer base {
+  :root {
+    --background-overlay: rgb(33, 33, 33, 0.24);
+    --primary: #f4511e;
+    --primary-dark: #dd491c;
+    --background: #ffffff;
+    --background-hover: #ffffff;
+    --secondary: #97a1af;
+    --secondary-hover: #97a1af;
+    --text: #344051;
+    --text-light: #f3f4f6;
+    --font-logo: 'FiraSans' 'sans-serif';
+    --font-inter: 'Inter' 'sans-serif';
+  }
+
+  .dark {
+    --background-overlay: rgba(93, 89, 89, 0.24);
+    --primary: #f4511e;
+    --primary-dark: #dd491c;
+    --background: #212325;
+    --secondary: #97a1af;
+    --text: #344051;
+    --text-light: #363739;
+    --font-logo: 'FiraSans' 'sans-serif';
+    --font-inter: 'Inter' 'sans-serif';
+  }
+}
+ */
+
+
+ @layer base {
+  :root {
+    --background: 0 0% 100%; /* Белый фон */
+    --foreground: 222.2 84% 4.9%; /* Темный текст */
+
+    --primary: 14 91% 54%; /* Основной цвет */
+    --primary-dark: 14 78% 49%; /* Основной цвет */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 210 40% 96.1%; /* Вторичный цвет */
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary-2: 215 13% 64%; /* Вторичный цвет */
+    --secondary-foreground-2: 215 13% 64%;
+
+    --muted: 210 40% 96.1%; /* Приглушенный цвет */
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 15 22% 26%; /* Акцентный цвет */
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%; /* Цвет для ошибок */
+    --destructive-foreground: 210 40% 98%;
+  }
+
+  .dark {
+    --background: 0 0% 7%; /* Темный фон */
+    --foreground: 210 40% 98%;
+
+    --primary: 14 91% 54%; /* Основной цвет */
+    --primary-dark: 14 78% 49%; /* Основной цвет */
+    --primary-foreground: 0 0% 88%;
+
+    --secondary: 217.2 32.6% 17.5%; /* Вторичный цвет для темной темы */
+    --secondary-dark: 218 31% 12%; /* Вторичный цвет для темной темы */
+    --secondary-foreground: 210 40% 98%;
+
+    --secondary-2: 215 13% 64%; /* Вторичный цвет */
+    --secondary-foreground-2: 215 13% 64%; /* Вторичный цвет */
+
+    --muted: 218 23% 26%; /* Приглушенный цвет для темной темы */
+    --muted-foreground: 218 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%; /* Акцентный цвет для темной темы */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%; /* Цвет для ошибок в темной теме */
+    --destructive-foreground: 210 40% 98%;
+  }
+}
+
+
+@layer utilities {
+  .primary-filter {
+    filter: brightness(0) saturate(100%) invert(43%) sepia(78%) saturate(3821%) hue-rotate(350deg)
+      brightness(98%) contrast(95%);
+  }
+  .grey-dark-filter {
+    filter: brightness(0) saturate(100%) invert(23%) sepia(22%) saturate(519%) hue-rotate(175deg)
+      brightness(102%) contrast(101%);
+  }
+  .scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

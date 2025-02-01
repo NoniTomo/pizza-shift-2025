@@ -1,7 +1,7 @@
 import { instance } from '@/src/shared/api/instance'
 
-interface GetPizzaOrdersIdParams {
-  id: number
+export interface GetPizzaOrdersIdParams {
+  id: string
 }
 
 export type GetPizzaOrdersIdRequestConfig = RequestConfig<GetPizzaOrdersIdParams>

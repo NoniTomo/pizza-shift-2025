@@ -14,6 +14,6 @@ export default antfu([
   {
     react: true,
     typescript: true,
-    stylistic: false,
+    stylistic: true,
   },
 ])

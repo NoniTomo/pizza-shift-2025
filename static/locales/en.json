@@ -3,12 +3,20 @@
   "pizza": "Pizza",
   "orders": "Orders",
   "cart": "Cart",
+  "auth": "Authorization",
 
+  "language": "Language",
   "costPizza": "from {cost} ₽",
   "orderCost": "Order cost: {cost}",
-  "leaveModalQuestion": "You sure you want to get out?",
   "seasonToTaste": "Season to taste",
   "cartEmpty": "Cart is empty",
+  "userIsNotOrders": "Make your first order!",
+  "lightTheme": "Light theme",
+  "darkTheme": "Dark theme",
+  "theme": "Theme",
+
+  "leaveModalQuestion": "You sure you want to get out?",
+  "cancelOrderModalQuestion": "Cancel the order??",
 
   "formRuleRequired": "This field is required",
   "formRuleMaxLength": "Maximum {length} characters",
@@ -23,8 +31,15 @@
   "buttonToTheMain": "To the main",
   "buttonLeave": "Leave",
   "buttonUpdateData": "Update data",
+  "buttonNotCancel": "Not cancel",
   "buttonCancel": "Cancel",
   "buttonAddToCart": "Add to cart",
+  "buttonGetOtp": "Request code again",
+  "buttonLogIn": "Log in",
+  "buttonCancelTheOrder": "Cancel the order",
+  "buttonReorder": "Reorder",
+  "buttonMoreDetails": "More details",
+  "buttonToPizzas": "For pizza!",
 
   "viewSuccesName": "Payment was successful!",
   "viewSuccesOrder": "Order",
@@ -32,6 +47,17 @@
   "viewSuccesOrderAmount": "Order amount",
   "viewSuccesInfoSMS": "All information was copied to SMS",
   "viewSuccesOrderPersonalAccount": "Go to your personal account",
+  "viewOrderStatus": "Status",
+  "viewOrderAddress": "Delivery address",
+  "viewOrderOrderAmount": "Order amount",
+  "viewOrderInOrder": "In order",
+  "viewCancelOrder": "Order is canceled",
+
+  "formAuthPhoneDescription": "Enter the phone number to log in",
+  "formAuthPhonePlaceholder": "89999999999",
+  "formAuthOtpsDescription": "Enter the verification code for your personal account",
+  "formAuthOtpsPlaceholder": "Verify Code",
+  "formAuthOtpsDelayMessage": "You can request the code again after {seconds} seconds",
 
   "formYourDataShortName": "Your data",
   "formYourDataLongName": "Please enter your data",
@@ -75,5 +101,14 @@
   "CHILE": "Chile",
   "SHRIMPS": "Shrimps",
   "CHICKEN_FILLET": "Chicken Fillet",
-  "MEATBALLS": "Meatballs"
+  "MEATBALLS": "Meatballs",
+
+  "active": "Active",
+  "history": "history",
+
+  "orderStatus0": "The order is",
+  "orderStatus1": "Order in progress",
+  "orderStatus2": "Courier order",
+  "orderStatus3": "Order delivered",
+  "orderStatus4": "Order is canceled"
 }
