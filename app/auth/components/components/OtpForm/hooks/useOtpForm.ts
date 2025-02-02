@@ -8,6 +8,7 @@ import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useHookFormMask } from 'use-mask-input'
 import { useAuth } from '../../../context/AuthContext'
 
 export function useOtpForm() {
@@ -29,7 +30,8 @@ export function useOtpForm() {
   })
 
   const onSubmit = async (data: { phone: string, otp: string }) => {
-    const response = await postPostUsersSignInMutation.mutateAsync({ params: { code: Number(data.otp), phone: data.phone } })
+    const phone = data.phone.split('').filter(char => char !== ' ').join('')
+    const response = await postPostUsersSignInMutation.mutateAsync({ params: { code: Number(data.otp), phone } })
     if (response.data.success) {
       setCookie('token', response.data.token)
       const userResponse = await getUsersSessionsMutation.mutateAsync({})
@@ -51,8 +53,10 @@ export function useOtpForm() {
     handleGetOtp()
   }, [])
 
+  const registerWithMask = useHookFormMask(form.register)
+
   return {
-    state: { form, seconds, isEnding },
+    state: { form: { ...form, register: registerWithMask }, seconds, isEnding },
     functions: { onSubmit, handleGetOtp },
   }
 }

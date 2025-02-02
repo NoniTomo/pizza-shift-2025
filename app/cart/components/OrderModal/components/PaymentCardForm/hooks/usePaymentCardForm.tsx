@@ -23,15 +23,17 @@ export function usePaymentCardForm() {
   const onSubmit = async (data: Card) => {
     const person = orderContext.value?.person
     const address = orderContext.value?.receiverAddress
+    const debitCard: Card = { ...data, expireDate: data.expireDate.split('').filter(char => char !== '/').join(''), pan: data.pan.split('').filter(char => char !== ' ').join('') }
 
     if (person && address) {
       const pizzas = orderContext.value?.cartPizzas?.flatMap(cartPizza =>
         Array.from({ length: cartPizza.count }, () => ({ doughs: cartPizza.pizza.choosenDough, id: cartPizza.pizza.id, name: cartPizza.pizza.name, size: cartPizza.pizza.choosenSize, toppings: cartPizza.pizza.choosenToppings })),
       ) || []
+
       const response = await postPizzaPaymentMutation.mutateAsync({
         params: {
           pizzas,
-          debitCard: data,
+          debitCard,
           person: { firstname: person.firstname, lastname: person.lastname, middlename: person.middlename, phone: person.phone },
           receiverAddress: { apartment: address.apartment, comment: address.comment, house: address.house, street: address.street },
         } as CreatePizzaPaymentDto,

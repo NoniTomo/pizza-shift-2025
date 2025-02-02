@@ -4,6 +4,7 @@ import { deleteCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useHookFormMask } from 'use-mask-input'
 
 export function useProfileForm() {
   const userContext = useUser()
@@ -27,10 +28,11 @@ export function useProfileForm() {
 
   const onSubmit = (data: User) => {
     const { phone, ...profile } = data
+    const phoneValid = data.phone.split('').filter(char => char !== ' ').join('')
     patchUsersProfileMutation.mutateAsync({
       params: {
         profile,
-        phone,
+        phone: phoneValid,
       },
     })
     userContext.set(data)
@@ -43,8 +45,10 @@ export function useProfileForm() {
     router.refresh()
   }
 
+  const registerWithMask = useHookFormMask(form.register)
+
   return {
-    state: { form, openModal, isLoading: patchUsersProfileMutation.isPending },
+    state: { form: { ...form, register: registerWithMask }, openModal, isLoading: patchUsersProfileMutation.isPending },
     functions: { onSubmit, onLeave, setOpenModal },
   }
 }

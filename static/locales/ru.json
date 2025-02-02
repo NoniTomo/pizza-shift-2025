@@ -65,7 +65,7 @@
   "field.middlename": "Фамилия",
   "field.lastname": "Отчество",
   "field.phone": "Номер телефона",
-  "field.phone.placeholder": "89999999999",
+  "field.phone.placeholder": "+7 999 999 99 99",
   "field.email": "Email",
   "field.email.placeholder": "ivanov@email.email",
   "field.city": "Город",
@@ -73,6 +73,8 @@
 
   "rule.required": "Это поле обязательное",
   "rule.maxLength": "Максимум {length} символов",
+  "rule.isMobilePhone": "Введите номер полностью",
+  "rule.full": "Введите полностью",
 
   "form.payment.name.short": "Карта оплаты",
   "form.payment.name.long": "Введите данные карты для оплаты",

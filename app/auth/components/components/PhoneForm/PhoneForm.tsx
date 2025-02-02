@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, TextField } from '@/src/shared/components'
-import { filterInputOnlyNumbers } from '@/src/shared/helpers'
+import { filterInputOnlyNumbers, validateMask } from '@/src/shared/helpers'
 import { useLocale } from '@/src/shared/hooks'
 import { usePhoneForm } from './hooks/usePhoneForm'
 
@@ -16,9 +16,11 @@ export function PhoneForm() {
       <form className="flex flex-col gap-5" onSubmit={state.form.handleSubmit(functions.onSubmit)}>
         <TextField
           id="phone"
-          register={state.form.register('phone', {
+          register={state.form.register('phone', '+7 999 999 99 99', {
             required: t('rule.required'),
+            validate: value => validateMask(value) ? true : t('rule.isMobilePhone'),
           })}
+          type="email"
           placeholder={t('field.phone.placeholder')}
           error={state.form.formState.errors.phone?.message}
           isDisabled={false}

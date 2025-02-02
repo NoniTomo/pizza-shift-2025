@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form'
+import { useHookFormMask } from 'use-mask-input'
 import { useAuth } from '../../../context/AuthContext'
 import { useStage } from '../../../context/StageContext'
 
@@ -14,12 +15,15 @@ export function usePhoneForm() {
   })
 
   const onSubmit = (data: { phone: string }) => {
-    authContext.set(data.phone)
+    const phone = data.phone.split('').filter(char => char !== ' ').join('')
+    authContext.set(phone)
     set('otpForm')
   }
 
+  const registerWithMask = useHookFormMask(form.register)
+
   return {
-    state: { form },
+    state: { form: { ...form, register: registerWithMask } },
     functions: { onSubmit },
   }
 }

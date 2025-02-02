@@ -1,7 +1,7 @@
 import { Main } from '@/app/(components)'
 import { Button, TextField } from '@/src/shared/components'
 
-import { filterInputOnlyNumbers } from '@/src/shared/helpers'
+import { filterInputOnlyNumbers, validateMask } from '@/src/shared/helpers'
 import { useLocale } from '@/src/shared/hooks'
 import { useStage } from '../../context/StageContext'
 import { StageLine } from '../StageLine/StageLine'
@@ -34,6 +34,7 @@ export function PaymentCardForm() {
                 id="pan"
                 register={state.form.register('pan', ['9999 9999'], {
                   required: true,
+                  validate: value => validateMask(value) ? true : t('rule.full'),
                 })}
                 placeholder="0000 0000"
                 error={state.form.formState.errors.pan?.message}
@@ -47,6 +48,7 @@ export function PaymentCardForm() {
                   id="expireDate"
                   register={state.form.register('expireDate', ['99/99'], {
                     required: true,
+                    validate: value => validateMask(value) ? true : t('rule.full'),
                   })}
                   className="box-border w-[48%]"
                   placeholder="00/00"
@@ -60,6 +62,7 @@ export function PaymentCardForm() {
                   id="cvv"
                   register={state.form.register('cvv', ['9999'], {
                     required: true,
+                    validate: value => validateMask(value) ? true : t('rule.full'),
                   })}
                   className="box-border w-[48%]"
                   placeholder="0000"

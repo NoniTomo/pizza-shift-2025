@@ -65,7 +65,7 @@
   "field.middlename": "Middlename",
   "field.lastname": "Lastname",
   "field.phone": "Number phone",
-  "field.phone.placeholder": "89999999999",
+  "field.phone.placeholder": "+7 999 999 99 99",
   "field.email": "Email",
   "field.email.placeholder": "ivanov@email.email",
   "field.city": "City",
@@ -73,6 +73,8 @@
 
   "rule.required": "This field is required",
   "rule.maxLength": "Maximum {length} characters",
+  "rule.isMobilePhone": "Please enter the full number",
+  "rule.full": "Please enter the full",
 
   "form.payment.name.short": "Payment card",
   "form.payment.name.long": "Enter the card data for payment",

@@ -1,5 +1,6 @@
 import { useUser } from '@/src/shared/context'
 import { useForm } from 'react-hook-form'
+import { useHookFormMask } from 'use-mask-input'
 import { useOrder } from '../../../context/OrderContext'
 import { useStage } from '../../../context/StageContext'
 
@@ -21,12 +22,15 @@ export function useUserDataForm() {
 
   const onSubmit = (data: User) => {
     const { city, ...person } = data
+    person.phone = data.phone.split('').filter(char => char !== ' ').join('')
     orderContext.set({ ...(orderContext.value ?? {}), person, receiverAddress: { comment: city, apartment: city, house: city, street: city } })
     set('cardForm')
   }
 
+  const registerWithMask = useHookFormMask(form.register)
+
   return {
-    state: { form },
+    state: { form: { ...form, register: registerWithMask } },
     functions: { onSubmit },
   }
 }
