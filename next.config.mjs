@@ -2,7 +2,7 @@
 
 const nextConfig = {
   images: {
-    domains: ['shift-intensive.ru'], // Добавьте ваш домен сюда
+    domains: ['shift-intensive.ru'],
   },
 }
 

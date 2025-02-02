@@ -16,8 +16,6 @@ function createGroupKey(pizza: OrderedPizza): string {
   return `${pizza.id}-${pizza.name}-${pizza.size}-${pizza.doughs}-${pizza.toppings.join(',')}`
 }
 
-// Группировка заказов
-
 export function OrderCard({ order, variant, children }: OrderCardProps) {
   const { t } = useLocale()
 
@@ -27,11 +25,11 @@ export function OrderCard({ order, variant, children }: OrderCardProps) {
     if (!acc[key]) {
       acc[key] = {
         pizza,
-        count: 1, // Добавляем поле quantity для подсчета количества
+        count: 1,
       }
     }
     else {
-      acc[key].count += 1 // Увеличиваем количество, если такая пицца уже есть
+      acc[key].count += 1
     }
 
     return acc
@@ -52,10 +50,6 @@ export function OrderCard({ order, variant, children }: OrderCardProps) {
             <p className="text-sm text-secondary-secondary-2">{t('viewOrderAddress')}</p>
             <p className="text-base">
               {order.receiverAddress?.street}
-              ,
-              {order.receiverAddress?.house}
-              ,
-              {order.receiverAddress?.apartment}
             </p>
           </div>
           <div className="flex w-full flex-col gap-1">

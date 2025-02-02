@@ -28,11 +28,11 @@ export function MobileCancelModal({ order, closeHandler }: MobileCancelModalProp
     if (!acc[key]) {
       acc[key] = {
         pizza,
-        count: 1, // Добавляем поле quantity для подсчета количества
+        count: 1,
       }
     }
     else {
-      acc[key].count += 1 // Увеличиваем количество, если такая пицца уже есть
+      acc[key].count += 1
     }
 
     return acc

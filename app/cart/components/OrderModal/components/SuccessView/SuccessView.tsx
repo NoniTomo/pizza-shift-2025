@@ -53,10 +53,6 @@ export function SuccessView() {
               <p className="text-sm text-gray-400">{t('viewSuccesAddress')}</p>
               <p className="text-base">
                 {value?.receiverAddress?.street}
-                ,
-                {value?.receiverAddress?.house}
-                ,
-                {value?.receiverAddress?.apartment}
               </p>
             </div>
             <div className="flex flex-col gap-1">

@@ -1,6 +1,5 @@
 'use client'
 
-// import { AuthCheck } from '@/src/components'
 import { I18nProvider, UserProvider } from '@/src/shared/context'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'
