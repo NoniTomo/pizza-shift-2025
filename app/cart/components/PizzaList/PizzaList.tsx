@@ -27,7 +27,7 @@ export function PizzaList() {
   }
 
   if (!value?.cartPizzas?.length)
-    return <h1 className="font-inter text-3xl font-bold text-text">{t('cartEmpty')}</h1>
+    return <h1 className="font-inter text-3xl font-bold text-text">{t('page.cart.cartEmpty')}</h1>
 
   return (
     <div className="flex flex-col gap-5 pb-40 sm:pb-0">
@@ -100,7 +100,7 @@ export function PizzaList() {
                         variant="link"
                         className="hover:text-secondary-secondary-dark text-secondary-secondary-2"
                       >
-                        {t('buttonChanged')}
+                        {t('button.change')}
                       </Button>
                     )}
                   />

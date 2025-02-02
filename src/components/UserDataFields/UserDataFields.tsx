@@ -22,13 +22,13 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
       <TextField
         id="middlename"
         register={form.register('middlename', {
-          required: t('formRuleRequired'),
-          maxLength: { value: 60, message: t('formRuleMaxLength', { length: String(String(60)) }) },
+          required: t('rule.required'),
+          maxLength: { value: 60, message: t('rule.maxLength', { length: String(String(60)) }) },
           validate: validateAlphabetAndSpecialSymbols,
         })}
-        placeholder={t('formYourDataMiddlename')}
+        placeholder={t('field.middlename')}
         error={form.formState.errors.middlename?.message}
-        label={t('formYourDataMiddlename')}
+        label={t('field.middlename')}
         isDisabled={false}
         isRequired={true}
         onKeyDown={filterInputAlphabet}
@@ -37,13 +37,13 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
       <TextField
         id="firstname"
         register={form.register('firstname', {
-          required: t('formRuleRequired'),
-          maxLength: { value: 60, message: 'Максимум один символ' },
+          required: t('rule.required'),
+          maxLength: { value: 60, message: t('rule.maxLength', { length: String(String(60)) }) },
           validate: validateAlphabetAndSpecialSymbols,
         })}
-        placeholder={t('formYourDataFirstname')}
+        placeholder={t('field.firstname')}
         error={form.formState.errors.firstname?.message}
-        label={t('formYourDataFirstname')}
+        label={t('field.firstname')}
         isDisabled={false}
         isRequired={true}
         onKeyDown={filterInputAlphabet}
@@ -52,14 +52,14 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
       <TextField
         id="lastname"
         register={form.register('lastname', {
-          required: t('formRuleRequired'),
-          maxLength: { value: 60, message: t('formRuleMaxLength', { length: String(60) }) },
+          required: t('rule.required'),
+          maxLength: { value: 60, message: t('rule.maxLength', { length: String(60) }) },
           validate: value =>
             value.split('').length > 0 ? validateAlphabetAndSpecialSymbols(value) : true,
         })}
-        placeholder={t('formYourDataLastname')}
+        placeholder={t('field.lastname')}
         error={form.formState.errors.lastname?.message}
-        label={t('formYourDataLastname')}
+        label={t('field.lastname')}
         isDisabled={false}
         isRequired={true}
         onKeyDown={filterInputAlphabet}
@@ -68,9 +68,9 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
       <TextField
         id="phone"
         register={form.register('phone')}
-        placeholder={t('formYourDataPhonePlaceholder')}
+        placeholder={t('field.phone.placeholder')}
         error={form.formState.errors.phone?.message}
-        label={t('formYourDataPhone')}
+        label={t('field.phone')}
         isDisabled={true}
         isRequired={true}
         onKeyDown={filterInputOnlyNumbers}
@@ -81,9 +81,9 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
         register={form.register('email', {
           validate: value => value.split('').length > 0 ? validateEmail(value) : true,
         })}
-        placeholder={t('formYourDataEmailPlaceholder')}
+        placeholder={t('field.email.placeholder')}
         error={form.formState.errors.email?.message}
-        label={t('formYourDataEmail')}
+        label={t('field.email')}
         isDisabled={false}
         isRequired={false}
         onKeyDown={filterInputEmail}
@@ -92,12 +92,12 @@ export function UserDataFields({ form, onSubmit, id }: UserDataFieldsProps) {
       <TextField
         id="city"
         register={form.register('city', {
-          required: t('formRuleRequired'),
-          maxLength: { value: 100, message: t('formRuleMaxLength', { length: String(60) }) },
+          required: t('rule.required'),
+          maxLength: { value: 100, message: t('rule.maxLength', { length: String(60) }) },
         })}
-        placeholder={t('formYourDataCityPlaceholder')}
+        placeholder={t('field.city.placeholder')}
         error={form.formState.errors.city?.message}
-        label={t('formYourDataCity')}
+        label={t('field.city')}
         isDisabled={false}
         isRequired={true}
       />

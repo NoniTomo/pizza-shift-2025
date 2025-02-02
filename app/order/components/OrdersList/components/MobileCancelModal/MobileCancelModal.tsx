@@ -52,7 +52,7 @@ export function MobileCancelModal({ order, closeHandler }: MobileCancelModalProp
               src={CancelIcon}
               height={32}
               width={32}
-              alt={t('buttonBack')}
+              alt={t('button.back')}
             />
           </Button>
         </div>
@@ -60,13 +60,13 @@ export function MobileCancelModal({ order, closeHandler }: MobileCancelModalProp
       <Main>
         <div className="flex h-full w-full max-w-[600px] flex-col justify-between gap-4">
           <div className="flex w-full flex-col flex-nowrap items-center justify-center gap-10 text-center sm:flex-row sm:justify-start">
-            <Image priority src={WarningImg} height={70} width={70} alt={t('buttonBack')} />
-            <p className="text-xl font-bold">{t('viewCancelOrder')}</p>
+            <Image priority src={WarningImg} height={70} width={70} alt={t('button.back')} />
+            <p className="text-xl font-bold">{t('page.orders.cancelOrder')}</p>
           </div>
           <Card className="w-full py-4 px-1 border-none shadow-none sm:rounded-xl sm:border-2 sm:border-solid sm:shadow-sm">
             <CardContent className="flex flex-col gap-3">
               <div className="flex w-full flex-col gap-1">
-                <p className="text-sm text-secondary-secondary-2">{t('viewSuccesOrder')}</p>
+                <p className="text-sm text-secondary-secondary-2">{t('order')}</p>
                 {Object.keys(groupedOrders).map(
                   (key, index) =>
                     (
@@ -89,7 +89,7 @@ export function MobileCancelModal({ order, closeHandler }: MobileCancelModalProp
                 )}
               </div>
               <div className="flex flex-col gap-1">
-                <p className="text-sm text-gray-400">{t('viewSuccesAddress')}</p>
+                <p className="text-sm text-gray-400">{t('deliveryAddress')}</p>
                 <p className="text-base">
                   {order.receiverAddress.street}
                   ,
@@ -99,13 +99,13 @@ export function MobileCancelModal({ order, closeHandler }: MobileCancelModalProp
                 </p>
               </div>
               <div className="flex flex-col gap-1">
-                <p className="text-sm text-gray-400">{t('viewSuccesOrderAmount')}</p>
+                <p className="text-sm text-gray-400">{t('orderAmount')}</p>
                 <p className="text-base">
                   {getTotalPrice(order.pizzas.map((pizza) => { return { count: 1, choosenDough: pizza.doughs, choosenSize: pizza.size, choosenToppings: pizza.toppings } }))}
                   ₽
                 </p>
               </div>
-              <p className="text-sm text-gray-400">{t('viewSuccesInfoSMS')}</p>
+              <p className="text-sm text-gray-400">{t('infoSMS')}</p>
             </CardContent>
           </Card>
           <div className="flex w-full flex-col gap-3 sm:flex-row">
@@ -113,7 +113,7 @@ export function MobileCancelModal({ order, closeHandler }: MobileCancelModalProp
               className="h-max w-full rounded-2xl bg-primary py-4 text-center text-base text-primary-foreground hover:bg-secondary-primary-dark"
               href={ROUTES.PIZZA}
             >
-              {t('buttonToTheMain')}
+              {t('button.toTheMain')}
             </Link>
           </div>
         </div>

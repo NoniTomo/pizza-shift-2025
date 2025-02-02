@@ -31,15 +31,15 @@ export function ProfileForm() {
           <ModalCancel
             open={state.openModal}
             setOpen={functions.setOpenModal}
-            text={t('leaveModalQuestion')}
-            buttonBottom={{ action: () => functions.setOpenModal(false), text: t('buttonCancel') }}
-            buttonTop={{ action: functions.onLeave, text: t('buttonLeave') }}
+            text={t('page.profile.leaveQuestion')}
+            buttonBottom={{ action: () => functions.setOpenModal(false), text: t('button.cancel') }}
+            buttonTop={{ action: functions.onLeave, text: t('button.leave') }}
           >
             <Button
               onClick={() => functions.setOpenModal(true)}
               className={`h-max w-full rounded-2xl bg-primary text-primary-foreground hover:bg-secondary-primary-dark py-4 text-base ${state.openModal && 'hidden'}`}
             >
-              {t('buttonLeave')}
+              {t('button.leave')}
             </Button>
           </ModalCancel>
           <Button
@@ -48,7 +48,7 @@ export function ProfileForm() {
             type="submit"
             className="text-foreground h-min w-full rounded-2xl border-2 border-solid border-text-light bg-background hover:bg-secondary py-4 text-base shadow-none"
           >
-            {t('buttonUpdateData')}
+            {t('button.updateData')}
           </Button>
         </div>
       </div>

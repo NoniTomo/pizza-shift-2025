@@ -1,5 +1,6 @@
 'use client'
 
+import type { getDictionary } from '@/src/shared/helpers'
 import { Main } from '@/app/(components)'
 import { HeaderClient } from '@/app/(components)/Header/HeaderClient'
 import { PizzaInfo } from '@/src/components'
@@ -66,7 +67,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
               src={CancelIcon}
               height={32}
               width={32}
-              alt={t('buttonBack')}
+              alt={t('button.back')}
             />
           )}
           className="relative max-w-full p-0 sm:max-w-max border-none"
@@ -82,7 +83,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
                 src={BackSvg}
                 height={32}
                 width={32}
-                alt={t('buttonBack')}
+                alt={t('button.back')}
               />
             </Button>
             <h1>{t('pizza')}</h1>
@@ -106,7 +107,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
                 {pizza?.ingredients && pizza.ingredients.map((topping, index) => (
                   <span key={index}>
                     {index > 0 && ', '}
-                    {t(topping.name)}
+                    {t(topping.name.toLowerCase() as keyof typeof getDictionary)}
                   </span>
                 ))}
               </p>
@@ -120,7 +121,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
                         className="h-max w-full rounded-2xl text-lg lg:text-xl"
                         value={size}
                       >
-                        {t(size)}
+                        {t(size.toLowerCase() as keyof typeof getDictionary)}
                       </TabsTrigger>
                     ))}
                   </TabsList>
@@ -134,7 +135,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
                       className="h-max rounded-2xl text-lg lg:text-xl w-full"
                       value={dough}
                     >
-                      {t(dough)}
+                      {t(dough.toLowerCase() as keyof typeof getDictionary)}
                     </TabsTrigger>
                   ))}
                 </TabsList>
@@ -169,7 +170,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
                           height={100}
                           width={100}
                         />
-                        <h3>{t(topping.name)}</h3>
+                        <h3>{t(topping.name.toLowerCase as keyof typeof getDictionary)}</h3>
                       </div>
                       <p className="font-bold">
                         {topping.cost}
@@ -198,7 +199,7 @@ export function PizzaCardModal({ type = 'add', pizza, action, triggerButton, cla
                 }
               }}
             >
-              {type === 'add' ? t('buttonAddToCart') : t('buttonChanged')}
+              {type === 'add' ? t('button.addToCart') : t('button.change')}
             </Button>
           </Main>
         </DialogContent>

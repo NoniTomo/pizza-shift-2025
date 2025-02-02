@@ -21,13 +21,13 @@ export function SelectTheme({ className }: SelectThemeProps) {
         <SelectItem value="light">
           <div className="flex flex-row gap-3">
             <Sun className="h-[1.2rem] w-[1.2rem]" />
-            <span>{t('lightTheme')}</span>
+            <span>{t('theme.light')}</span>
           </div>
         </SelectItem>
         <SelectItem value="dark">
           <div className="flex flex-row gap-3">
             <Moon className="h-[1.2rem] w-[1.2rem]" />
-            <span>{t('darkTheme')}</span>
+            <span>{t('theme.dark')}</span>
           </div>
         </SelectItem>
       </SelectContent>

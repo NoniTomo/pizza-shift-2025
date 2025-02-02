@@ -72,7 +72,7 @@ export async function Header({ children, locale, isAuth }: HeaderProps) {
           {!isAuth && (
             <NavButton
               iconSrc={LogInIcon}
-              content={dict.buttonLogIn}
+              content={dict['button.logIn']}
               alt={dict.auth}
               href={ROUTES.AUTH}
               type="row"

@@ -24,7 +24,7 @@ export function SuccessViewHeader() {
             src={CancelIcon}
             height={32}
             width={32}
-            alt={t('buttonBack')}
+            alt={t('button.back')}
           />
         </Button>
       </div>

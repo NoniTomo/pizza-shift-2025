@@ -35,7 +35,7 @@ export function ButtonReorder({ order }: ButtonReorderProps) {
 
   return (
     <Button onClick={() => handleReorder()} className="h-max w-full rounded-2xl bg-primary py-4 text-base text-text-light sm:col-start-2 text-primary-foreground hover:bg-secondary-primary-dark">
-      {t('buttonReorder')}
+      {t('button.reorder')}
     </Button>
   )
 }

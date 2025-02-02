@@ -73,7 +73,7 @@ export function HeaderClient({ children, className }: HeaderProps) {
           {!userContext.value && (
             <NavButton
               iconSrc={LogInIcon}
-              content={t('buttonLogIn')}
+              content={t('button.logIn')}
               alt={t('auth')}
               href={ROUTES.AUTH}
               type="row"

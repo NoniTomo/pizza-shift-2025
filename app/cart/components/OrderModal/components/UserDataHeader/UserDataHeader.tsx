@@ -17,10 +17,10 @@ export function UserDataHeader() {
           src={BackSvg}
           height={32}
           width={32}
-          alt={t('buttonBack')}
+          alt={t('button.back')}
         />
       </Button>
-      <h1>{t('formYourDataShortName')}</h1>
+      <h1>{t('form.yourData.name.short')}</h1>
     </HeaderClient>
   )
 }

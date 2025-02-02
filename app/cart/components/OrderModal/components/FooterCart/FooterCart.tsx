@@ -23,7 +23,7 @@ export function FooterCart({ cost }: FooterCartProps) {
           onClick={onClick}
           className="h-max rounded-xl bg-primary px-16 py-4 text-lg hover:bg-secondary-primary-dark text-primary-foreground"
         >
-          {t('buttonPlaceAnOrder')}
+          {t('button.placeAnOrder')}
         </Button>
       </div>
     )
@@ -36,7 +36,7 @@ export function FooterCart({ cost }: FooterCartProps) {
         onClick={onClick}
         className="h-max rounded-xl bg-primary px-8 py-4 text-lg hover:bg-secondary-primary-dark text-primary-foreground"
       >
-        {t('buttonPlaceAnOrder')}
+        {t('button.placeAnOrder')}
       </Button>
     </div>
   )

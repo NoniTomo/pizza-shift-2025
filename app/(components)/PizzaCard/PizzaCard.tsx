@@ -29,13 +29,13 @@ export function PizzaCard({ pizza, className = '' }: PizzaCardProps) {
           <h3 className="text-balance text-left text-base sm:text-xl font-bold">{pizza.name}</h3>
           <p className="text-balance text-left text-sm sm:text-base">{pizza.description}</p>
           <span className=" block sm:hidden text-left text-base sm:text-xl font-bold">
-            {t('costPizza', { cost: String(pizza.sizes[0].price) })}
+            {t('page.pizza.costPizza', { cost: String(pizza.sizes[0].price) })}
           </span>
         </div>
       </CardContent>
       <CardFooter className="hidden sm:block sm:flex-col p-0 gap-1">
         <span className="hidden sm:block w-full text-left text-xl font-bold">
-          {t('costPizza', { cost: String(pizza.sizes[0].price) })}
+          {t('page.pizza.costPizza', { cost: String(pizza.sizes[0].price) })}
         </span>
         <PizzaCardModal
           type="add"
@@ -54,7 +54,7 @@ export function PizzaCard({ pizza, className = '' }: PizzaCardProps) {
           }}
           triggerButton={(
             <Button className="h-max w-full rounded-2xl py-4 text-base bg-primary text-primary-foreground hover:bg-secondary-primary-dark">
-              {t('buttonSelected')}
+              {t('button.select')}
             </Button>
           )}
         />

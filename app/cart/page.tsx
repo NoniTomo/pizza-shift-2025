@@ -26,7 +26,7 @@ export default async function Home() {
             className="hover:grey-dark-filter"
             height={32}
             width={32}
-            alt={dict.buttonBack}
+            alt={dict['button.back']}
           />
         </Link>
         <h1>{dict.cart}</h1>

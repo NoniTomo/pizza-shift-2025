@@ -33,19 +33,19 @@ export function OrdersList() {
             <OrderCard variant="active" order={order}>
               <ModalCancel
                 buttonBottom={{
-                  text: t('buttonNotCancel'),
+                  text: t('button.notCancel'),
                   action: () => functions.setOpen(false),
                 }}
                 buttonTop={{
-                  text: t('buttonCancel'),
+                  text: t('button.cancel'),
                   action: async () => await functions.handleCancelOrder(order._id),
                 }}
-                text={t('cancelOrderModalQuestion')}
+                text={t('page.orders.cancelQuestion')}
                 open={state.open}
                 setOpen={functions.setOpen}
               >
                 <Button disabled={!!((order.status === 2 || order.status === 1))} className={`h-max w-full rounded-2xl text-lg bg-primary py-4 sm:col-start-2 text-primary-foreground hover:bg-secondary-primary-dark ${(order.status === 2 || order.status === 1) && 'hidden'}`}>
-                  {t('buttonCancelTheOrder')}
+                  {t('button.cancelTheOrder')}
                 </Button>
               </ModalCancel>
             </OrderCard>
@@ -54,9 +54,9 @@ export function OrdersList() {
         {state.isNotActiveOrder
         && (
           <div className="flex flex-col gap-3">
-            <h3 className="font-inter text-xl font-bold ">{t('userIsNotOrders')}</h3>
+            <h3 className="font-inter text-xl font-bold ">{t('page.orders.userIsNotOrders')}</h3>
             <Link href={ROUTES.PIZZA} className="h-max text-center bg-primary w-max px-10 rounded-2xl py-4 sm:col-start-2 text-primary-foreground hover:bg-secondary-primary-dark">
-              {t('buttonToPizzas')}
+              {t('button.toPizzas')}
             </Link>
           </div>
         )}
@@ -81,16 +81,16 @@ export function OrdersList() {
                     className="font-inter text-base bg-background font-bold hover:underline shadow-none border-none"
                     href={ROUTES.ORDER_ID(order._id)}
                   >
-                    {t('buttonMoreDetails')}
+                    {t('button.moreDetails')}
                   </Link>
                 </OrderCard>
               </li>
             ))}
             {state.isNotHistoryOrder && (
               <div className="flex flex-col gap-3">
-                <h3 className="font-inter text-xl font-bold ">{t('userIsNotOrders')}</h3>
+                <h3 className="font-inter text-xl font-bold ">{t('page.orders.userIsNotOrders')}</h3>
                 <Link href={ROUTES.PIZZA} className="h-max text-center bg-primary w-max px-10 rounded-2xl py-4 sm:col-start-2 text-primary-foreground hover:bg-secondary-primary-dark">
-                  {t('buttonToPizzas')}
+                  {t('button.toPizzas')}
                 </Link>
               </div>
             )}

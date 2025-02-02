@@ -18,10 +18,10 @@ export function PaymentCardHeader() {
           src={BackSvg}
           height={32}
           width={32}
-          alt={t('buttonBack')}
+          alt={t('button.back')}
         />
       </Button>
-      <h1>{t('formPaymentShortName')}</h1>
+      <h1>{t('form.payment.name.short')}</h1>
     </HeaderClient>
   )
 }

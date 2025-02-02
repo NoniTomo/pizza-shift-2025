@@ -51,7 +51,7 @@ export function ModalCancel({
             src={CancelIcon}
             height={32}
             width={32}
-            alt={t('buttonBack')}
+            alt={t('button.back')}
           />
         )}
         className="flex flex-col border-none max-w-screen sm:max-w-lg bg-background p-5 sm:p-10 fixed bottom-0 left-0 right-0 rounded-t-3xl sm:rounded-3xl sm:relative "

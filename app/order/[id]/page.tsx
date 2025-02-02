@@ -40,7 +40,7 @@ export default async function OrderId({ params }: RootLayoutProps) {
               src={BackIcon}
               height={32}
               width={32}
-              alt={dict.buttonBack}
+              alt={dict['button.back']}
             />
           </Link>
           <h1>{dict.auth}</h1>
@@ -56,10 +56,10 @@ export default async function OrderId({ params }: RootLayoutProps) {
             src={BackIcon}
             height={32}
             width={32}
-            alt={dict.buttonBack}
+            alt={dict['button.back']}
           />
 
-          <h1>{dict.buttonBack}</h1>
+          <h1>{dict['button.back']}</h1>
         </Link>
         <div className="flex flex-col gap-5 max-w-[600px]">
           <OrderCard order={order} variant="active">
@@ -68,7 +68,7 @@ export default async function OrderId({ params }: RootLayoutProps) {
                 href={ROUTES.ORDER}
                 className="text-text-dark text-center h-min w-full rounded-2xl border-2 border-solid border-text-light bg-background py-4 text-base shadow-none hover:bg-secondary"
               >
-                {dict.buttonBack}
+                {dict['button.back']}
               </Link>
               <ButtonReorder order={order} />
             </div>

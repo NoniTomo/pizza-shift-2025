@@ -27,7 +27,7 @@ export default async function Auth() {
               src={CancelIcon}
               height={32}
               width={32}
-              alt={dict.buttonBack}
+              alt={dict['button.back']}
             />
           </Link>
           <h1>{dict.auth}</h1>

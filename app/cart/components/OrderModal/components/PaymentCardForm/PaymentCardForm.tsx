@@ -23,7 +23,7 @@ export function PaymentCardForm() {
           {numberCurrentStage}
         </h1>
         <StageLine className="w-1/2" />
-        <h1 className="hidden pb-5 text-xl font-bold sm:block">{t('formPaymentLongName')}</h1>
+        <h1 className="hidden pb-5 text-xl font-bold sm:block">{t('form.payment.name.long')}</h1>
         <div className="flex flex-col gap-5">
           <form
             className="flex max-w-[600px] flex-col gap-5"
@@ -37,7 +37,7 @@ export function PaymentCardForm() {
                 })}
                 placeholder="0000 0000"
                 error={state.form.formState.errors.pan?.message}
-                label={t('formPaymentPan')}
+                label={t('field.pan')}
                 isDisabled={false}
                 isRequired={true}
                 onKeyDown={filterInputOnlyNumbers}
@@ -51,7 +51,7 @@ export function PaymentCardForm() {
                   className="box-border w-[48%]"
                   placeholder="00/00"
                   error={state.form.formState.errors.expireDate?.message}
-                  label={t('formPaymentExpireDate')}
+                  label={t('field.expireDate')}
                   isDisabled={false}
                   isRequired={true}
                   onKeyDown={filterInputOnlyNumbers}
@@ -76,14 +76,14 @@ export function PaymentCardForm() {
                 className="text-text-dark hidden h-max w-full rounded-2xl border-2 border-solid border-text-light py-4 text-base shadow-none sm:flex bg-background hover:bg-secondary"
                 onClick={() => back()}
               >
-                {t('buttonBack')}
+                {t('button.back')}
               </Button>
               <Button
                 className="h-max w-full rounded-2xl bg-primary py-4 text-base text-primary-foreground hover:bg-secondary-primary-dark"
                 type="submit"
                 disabled={state.isLoading}
               >
-                {t('buttonPayment')}
+                {t('button.payment')}
               </Button>
             </div>
           </form>
