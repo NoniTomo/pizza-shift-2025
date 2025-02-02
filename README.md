@@ -1,5 +1,9 @@
 ## Demo
-https://pizza-shift-2025-rust.vercel.app/
+#### app
+https://pizza-shift-2025-alpha.vercel.app/
+
+#### otp cods
+https://shift-intensive.ru/api/otps
 
 ## Getting Started
 
