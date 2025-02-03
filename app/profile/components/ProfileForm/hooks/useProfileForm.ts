@@ -29,6 +29,7 @@ export function useProfileForm() {
   const onSubmit = (data: User) => {
     const { phone, ...profile } = data
     const phoneValid = data.phone.split('').filter(char => char !== ' ').join('')
+
     patchUsersProfileMutation.mutateAsync({
       params: {
         profile,

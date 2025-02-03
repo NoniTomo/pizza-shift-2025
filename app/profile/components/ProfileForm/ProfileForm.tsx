@@ -1,10 +1,12 @@
 'use client'
 
-import { ModalCancel } from '@/src/components'
+import { AddressSuggestionsSSR, ModalCancel } from '@/src/components'
 import { Button, TextField } from '@/src/shared/components'
 import { filterInputAlphabet, filterInputEmail, filterInputOnlyNumbers, validateAlphabetAndSpecialSymbols, validateEmail, validateMask } from '@/src/shared/helpers'
-import { useLocale } from '@/src/shared/hooks'
 
+import { useLocale } from '@/src/shared/hooks'
+import React from 'react'
+import { Controller } from 'react-hook-form'
 import { SelectLocale } from './components/SelectLocale/SelectLocale'
 import { SelectTheme } from './components/SelectTheme/SelectTheme'
 import { useProfileForm } from './hooks/useProfileForm'
@@ -101,18 +103,24 @@ export function ProfileForm() {
             onKeyDown={filterInputEmail}
             onPaste={filterInputEmail}
           />
-          <TextField
-            id="city"
-            register={state.form.register('city', '', {
+          <Controller
+            control={state.form.control}
+            rules={{
               required: t('rule.required'),
-              maxLength: { value: 100, message: t('rule.maxLength', { length: String(60) }) },
-            })}
-            placeholder={t('field.city.placeholder')}
-            error={state.form.formState.errors.city?.message}
-            label={t('field.city')}
-            isDisabled={false}
-            isRequired={true}
-          />
+            }}
+            name="city"
+            render={({
+              field: { onChange, value },
+            }) => (
+              <AddressSuggestionsSSR
+                onChange={onChange}
+                value={value}
+                defaultQuery={state.form.getValues('city')}
+                error={state.form.formState.errors.city?.message}
+              />
+            )}
+          >
+          </Controller>
         </form>
         <div className="flex flex-col-reverse gap-3 sm:flex-row">
           <ModalCancel

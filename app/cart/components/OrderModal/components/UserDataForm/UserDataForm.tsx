@@ -1,9 +1,11 @@
 'use client'
 
 import { Main } from '@/app/(components)'
+import { AddressSuggestionsSSR } from '@/src/components'
 import { Button, TextField } from '@/src/shared/components'
 import { filterInputAlphabet, filterInputEmail, filterInputOnlyNumbers, validateAlphabetAndSpecialSymbols, validateEmail, validateMask } from '@/src/shared/helpers'
 import { useLocale } from '@/src/shared/hooks'
+import { Controller } from 'react-hook-form'
 import { useStage } from '../../context/StageContext'
 import { StageLine } from '../StageLine/StageLine'
 import { useUserDataForm } from './hooks/useUserDataForm'
@@ -99,18 +101,24 @@ export function UserDataForm() {
             onKeyDown={filterInputEmail}
             onPaste={filterInputEmail}
           />
-          <TextField
-            id="city"
-            register={state.form.register('city', '', {
+          <Controller
+            control={state.form.control}
+            rules={{
               required: t('rule.required'),
-              maxLength: { value: 100, message: t('rule.maxLength', { length: String(60) }) },
-            })}
-            placeholder={t('field.city.placeholder')}
-            error={state.form.formState.errors.city?.message}
-            label={t('field.city')}
-            isDisabled={false}
-            isRequired={true}
-          />
+            }}
+            name="city"
+            render={({
+              field: { onChange, value },
+            }) => (
+              <AddressSuggestionsSSR
+                onChange={onChange}
+                value={value}
+                defaultQuery={state.form.getValues('city')}
+                error={state.form.formState.errors.city?.message}
+              />
+            )}
+          >
+          </Controller>
         </form>
         <div className="flex gap-3">
           <Button

@@ -1,3 +1,4 @@
+export * from './AddressSuggestionsSSR/AddressSuggestionsSSR'
 export * from './Modal/Modal'
 export * from './OrderCard/OrderCard'
 export * from './PizzaCardModal/PizzaCardModal'

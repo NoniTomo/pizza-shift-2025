@@ -4,7 +4,7 @@ import type { UseFormRegisterReturn } from 'react-hook-form'
 export type TextFieldProps = {
   label?: string
   id: string
-  register: UseFormRegisterReturn
+  register?: UseFormRegisterReturn
   isDisabled?: boolean
   isRequired?: boolean
   placeholder?: string

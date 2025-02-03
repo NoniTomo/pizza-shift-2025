@@ -23,6 +23,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className={`${interSans.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
