@@ -52,7 +52,13 @@ export function SuccessView() {
             <div className="flex flex-col gap-1">
               <p className="text-sm text-gray-400">{t('deliveryAddress')}</p>
               <p className="text-base">
+                {value?.receiverAddress?.city}
+                ,
                 {value?.receiverAddress?.street}
+                ,
+                {value?.receiverAddress?.house}
+                ,
+                {value?.receiverAddress?.apartment}
               </p>
             </div>
             <div className="flex flex-col gap-1">

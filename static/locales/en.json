@@ -70,6 +70,8 @@
   "field.email.placeholder": "ivanov@email.email",
   "field.city": "City",
   "field.city.placeholder": "city Novosibirsk, Kirova St., 86",
+  "field.comment.placeholder": "Courier comment...",
+  "field.comment": "Courier comment",
 
   "rule.required": "This field is required",
   "rule.maxLength": "Maximum {length} characters",

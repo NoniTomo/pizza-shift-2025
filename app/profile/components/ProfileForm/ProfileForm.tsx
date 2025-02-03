@@ -1,9 +1,10 @@
 'use client'
 
+import type { DaDataAddress, DaDataSuggestion } from 'react-dadata'
 import { AddressSuggestionsSSR, ModalCancel } from '@/src/components'
 import { Button, TextField } from '@/src/shared/components'
-import { filterInputAlphabet, filterInputEmail, filterInputOnlyNumbers, validateAlphabetAndSpecialSymbols, validateEmail, validateMask } from '@/src/shared/helpers'
 
+import { filterInputAlphabet, filterInputEmail, filterInputOnlyNumbers, validateAlphabetAndSpecialSymbols, validateEmail, validateMask } from '@/src/shared/helpers'
 import { useLocale } from '@/src/shared/hooks'
 import React from 'react'
 import { Controller } from 'react-hook-form'
@@ -113,7 +114,7 @@ export function ProfileForm() {
               field: { onChange, value },
             }) => (
               <AddressSuggestionsSSR
-                onChange={onChange}
+                onChange={(value: DaDataSuggestion<DaDataAddress> | undefined) => onChange(value?.value)}
                 value={value}
                 defaultQuery={state.form.getValues('city')}
                 error={state.form.formState.errors.city?.message}

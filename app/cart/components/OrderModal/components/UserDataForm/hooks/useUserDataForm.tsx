@@ -1,3 +1,4 @@
+import type { DaDataAddress, DaDataSuggestion } from 'react-dadata'
 import { useUser } from '@/src/shared/context'
 import { useForm } from 'react-hook-form'
 import { useHookFormMask } from 'use-mask-input'
@@ -16,14 +17,20 @@ export function useUserDataForm() {
       lastname: userContext.value?.lastname || orderContext.value?.person?.lastname || '',
       phone: userContext.value?.phone || orderContext.value?.person?.phone || '',
       email: userContext.value?.email || orderContext.value?.person?.email || '',
-      city: userContext.value?.city ?? '',
+      city: {
+        value: userContext.value?.city ?? '',
+        unrestricted_value: userContext.value?.city ?? '',
+        data: {} as DaDataAddress,
+      } as DaDataSuggestion<DaDataAddress>,
+      comment: '',
     },
   })
 
-  const onSubmit = (data: User) => {
-    const { city, ...person } = data
+  const onSubmit = (data: { firstname: string, middlename: string, lastname: string, phone: string, email: string, city: DaDataSuggestion<DaDataAddress>, comment: string }) => {
+    const { city, comment, ...person } = data
     person.phone = data.phone.split('').filter(char => char !== ' ').join('')
-    orderContext.set({ ...(orderContext.value ?? {}), person, receiverAddress: { comment: city, apartment: city, house: city, street: city } })
+
+    orderContext.set({ ...(orderContext.value ?? {}), person, receiverAddress: { comment, city: city.data.city ?? '', apartment: city.data.flat ?? '', house: city.data.house ?? '', street: city.data.street ?? '' } })
     set('cardForm')
   }
 

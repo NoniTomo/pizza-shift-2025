@@ -49,7 +49,13 @@ export function OrderCard({ order, variant, children }: OrderCardProps) {
           <div className="flex flex-col gap-1">
             <p className="text-sm text-secondary-secondary-2">{t('deliveryAddress')}</p>
             <p className="text-base">
-              {order.receiverAddress?.street}
+              {order?.receiverAddress?.street}
+              ,
+              {order?.receiverAddress?.house}
+              ,
+              {order?.receiverAddress?.apartment}
+              {' '}
+              {order?.receiverAddress?.city && `, ${order?.receiverAddress?.city}`}
             </p>
           </div>
           <div className="flex w-full flex-col gap-1">

@@ -1,5 +1,6 @@
 'use client'
 
+import type { DaDataAddress, DaDataSuggestion } from 'react-dadata'
 import { DADATA_API } from '@/security/dadata'
 import { TextField } from '@/src/shared/components'
 import { useLocale } from '@/src/shared/hooks'
@@ -8,7 +9,7 @@ import { AddressSuggestions } from 'react-dadata'
 
 export interface AddressSuggestionsSSRProps {
   onChange: (...event: any[]) => void
-  value: string
+  value: DaDataSuggestion<DaDataAddress> | string
   defaultQuery: string
   error?: string
 }
@@ -39,7 +40,7 @@ export function AddressSuggestionsSSR({ onChange, value, defaultQuery, error }: 
       token={DADATA_API}
       inputProps={{ placeholder: 'Поиск только городов' }}
       defaultQuery={defaultQuery}
-      onChange={value => onChange(value?.value)}
+      onChange={value => onChange(value)}
       delay={200}
       count={5}
       customInput={props => (

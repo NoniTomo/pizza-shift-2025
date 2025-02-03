@@ -70,6 +70,8 @@
   "field.email.placeholder": "ivanov@email.email",
   "field.city": "Город",
   "field.city.placeholder": "г. Новосибирск, ул. Кирова, д. 86",
+  "field.comment.placeholder": "Комментарий для курьера...",
+  "field.comment": "Комментарий для курьера",
 
   "rule.required": "Это поле обязательное",
   "rule.maxLength": "Максимум {length} символов",

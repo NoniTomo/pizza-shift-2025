@@ -34,8 +34,8 @@ export function usePaymentCardForm() {
         params: {
           pizzas,
           debitCard,
-          person: { firstname: person.firstname, lastname: person.lastname, middlename: person.middlename, phone: person.phone },
-          receiverAddress: { apartment: address.apartment, comment: address.comment, house: address.house, street: address.street },
+          person,
+          receiverAddress: address,
         } as CreatePizzaPaymentDto,
       })
       if (response.data.success)

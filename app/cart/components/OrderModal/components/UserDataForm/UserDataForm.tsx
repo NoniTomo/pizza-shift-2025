@@ -105,6 +105,7 @@ export function UserDataForm() {
             control={state.form.control}
             rules={{
               required: t('rule.required'),
+              validate: value => Object.keys(value.data).length !== 0 ? true : 'Выберите адрес в подсказках',
             }}
             name="city"
             render={({
@@ -112,13 +113,22 @@ export function UserDataForm() {
             }) => (
               <AddressSuggestionsSSR
                 onChange={onChange}
+                defaultQuery={state.form.getValues('city').value}
                 value={value}
-                defaultQuery={state.form.getValues('city')}
                 error={state.form.formState.errors.city?.message}
               />
             )}
           >
           </Controller>
+          <TextField
+            id="comment"
+            register={state.form.register('comment', '')}
+            placeholder={t('field.comment.placeholder')}
+            error={state.form.formState.errors.email?.message}
+            label={t('field.comment')}
+            isDisabled={false}
+            isRequired={false}
+          />
         </form>
         <div className="flex gap-3">
           <Button
